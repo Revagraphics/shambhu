@@ -107,12 +107,12 @@ const About = () => {
             {[
               {
                 icon: <FaGlobeAsia />,
-                value: "50+",
+                value: "5+",
                 title: "Countries Served",
               },
               {
                 icon: <FaShippingFast />,
-                value: "25K+",
+                value: "2K+",
                 title: "Shipments Delivered",
               },
               {
@@ -122,7 +122,7 @@ const About = () => {
               },
               {
                 icon: <FaBoxOpen />,
-                value: "15+",
+                value: "5+",
                 title: "Years Experience",
               },
             ].map((item, index) => (
@@ -167,7 +167,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-blue-100 text-[#03689e]">
+            <span className="inline-block px-4 py-2 rounded-full bg-zinc-100 text-[#ffac1c]">
               Our Expertise
             </span>
 
@@ -190,9 +190,9 @@ const About = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-gradient-to-r from-[#03689e] to-[#0489c9] text-white rounded-3xl p-12 text-center flex flex-col justify-center items-center"
+                  className="absolute inset-0 bg-[#fff] text-[#ffac1c] rounded-3xl border p-[2rem] text-center flex flex-col justify-center items-center"
                 >
-                  <h3 className="text-3xl font-bold mb-5">
+                  <h3 className="text-2xl font-bold mb-5">
                     {services[currentSlide].title}
                   </h3>
 
@@ -200,7 +200,7 @@ const About = () => {
                     {services[currentSlide].text}
                   </p>
 
-                  <button className="mt-8 bg-white text-[#03689e] px-8 py-3 rounded-full font-semibold hover:scale-105 transition shadow-md">
+                  <button className="mt-8 bg-white text-[#000] px-8 py-3 rounded-full font-semibold hover:scale-105 transition shadow-md">
                     Learn More
                   </button>
                 </motion.div>

@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaChevronDown,
-  FaGlobe,
-  FaShippingFast,
-  FaShieldAlt,
-  FaHeadset,
-} from "react-icons/fa";
+import {FaChevronDown,FaGlobe,FaShippingFast,FaShieldAlt,FaHeadset,} from "react-icons/fa";
 
 import exportt from "../assets/export.jpg";
 

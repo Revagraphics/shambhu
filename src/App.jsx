@@ -11,12 +11,14 @@ import Footer from "./components/Footer";
 import PostalServices from "./pages/PostalServices";
 import Exporting from "./pages/Exporting";
 import Fmcg from "./pages/Fmcg";
+import GoToTop from "./components/GoToTop";
 
 
 
 function App() {
   return (
     <>
+      
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -149,6 +149,33 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="py-12 bg-[#f8f9fc] overflow-hidden w-full">
+        {/* 1. Mask Container: Hides horizontal scrollbars and creates a wrapper boundary */}
+        <div className="max-w-[90vw] mx-auto px-6 lg:px-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+          {/* 2. Motion Track Container */}
+          <motion.div
+            className="flex gap-12 whitespace-nowrap min-w-full w-max pr-12"
+            // Animate from 0 to negative half of the overall combined track width
+            animate={{ x: [0, "-50%"] }}
+            transition={{
+              ease: "linear", // MUST be linear for constant, unbroken speed
+              duration: 20, // Adjust this number to make it faster (lower) or slower (higher)
+              repeat: Infinity, // Keeps looping forever
+            }}
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <img
+                // Use combined index strings to guarantee unique layout keys
+                key={`${logo.id}-${index}`}
+                src={logo.logo}
+                alt={`Logo ${logo.id}`}
+                className="h-6 w-auto sm:h-12 object-contain opacity-80 hover:opacity-100 transition-opacity duration-200 cursor-pointer inline-block"
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-24 bg-white">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -321,32 +348,7 @@ const Home = () => {
 
       {/* logo marquee */}
 
-      <section className="py-12 bg-[#f8f9fc] overflow-hidden w-full">
-        {/* 1. Mask Container: Hides horizontal scrollbars and creates a wrapper boundary */}
-        <div className="max-w-[90vw] mx-auto px-6 lg:px-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
-          {/* 2. Motion Track Container */}
-          <motion.div
-            className="flex gap-12 whitespace-nowrap min-w-full w-max pr-12"
-            // Animate from 0 to negative half of the overall combined track width
-            animate={{ x: [0, "-50%"] }}
-            transition={{
-              ease: "linear", // MUST be linear for constant, unbroken speed
-              duration: 20, // Adjust this number to make it faster (lower) or slower (higher)
-              repeat: Infinity, // Keeps looping forever
-            }}
-          >
-            {duplicatedLogos.map((logo, index) => (
-              <img
-                // Use combined index strings to guarantee unique layout keys
-                key={`${logo.id}-${index}`}
-                src={logo.logo}
-                alt={`Logo ${logo.id}`}
-                className="h-12 w-auto sm:h-8 object-contain opacity-80 hover:opacity-100 transition-opacity duration-200 cursor-pointer inline-block"
-              />
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      
 
       {/* Solutions Section */}
       <section className="py-24 bg-[#f8f9fc]">

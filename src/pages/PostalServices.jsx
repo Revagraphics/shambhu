@@ -1,5 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import amazon from "../assets/amazon.jpg";
+import boat from "../assets/boat.png";
+import derma from "../assets/derma.png";
+import flipcart from "../assets/flipcart.png";
+import jocky from "../assets/jocky.png";
+import myntra from "../assets/myntra.webp";
+import nyka from "../assets/nyka.png";
+import shaving from "../assets/shaving.png";
 
 const categories = ["All", "E-Commerce", "Fashion", "Electronics", "Health"];
 
@@ -8,32 +16,51 @@ const portals = [
     id: 1,
     name: "Amazon",
     category: "E-Commerce",
-    logo: "/logos/amazon.png",
+    logo: amazon,
   },
   {
     id: 2,
     name: "Flipkart",
     category: "E-Commerce",
-    logo: "/logos/flipkart.png",
+    logo: flipcart,
   },
   {
     id: 3,
     name: "Nykaa",
     category: "Fashion",
-    logo: "/logos/nykaa.png",
+    logo: nyka,
   },
   {
     id: 4,
     name: "boAt",
     category: "Electronics",
-    logo: "/logos/boat.png",
+    logo: boat,
   },
   {
     id: 5,
     name: "Derma Co",
     category: "Health",
-    logo: "/logos/dermaco.png",
+    logo: derma,
   },
+  {
+    id: 6,
+    name: "Jocky",
+    category: "Fashion",
+    logo: jocky,
+  },
+  {
+    id: 7,
+    name: "Myntra",
+    category: "Fashion",
+    logo: myntra,
+  },
+  {
+    id: 8,
+    name: "Shaving Company",
+    category: "Health",
+    logo: shaving,
+  },
+
 ];
 
 export default function PostalServices() {
@@ -58,42 +85,52 @@ export default function PostalServices() {
         </div>
 
         {/* Categories */}
-        <div className="sm:flex flex-wrap overflow-x-auto justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full transition-all
+        <div className="mb-10">
+          <div className="flex gap-3 overflow-x-auto whitespace-nowrap pb-2 scrollbar-hide">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`flex-shrink-0 px-5 py-2 rounded-full transition-all duration-300
               ${
                 activeCategory === category
-                  ? "bg-[#03689e] text-white"
-                  : "bg-white text-slate-700 shadow"
+                  ? "bg-[#03689e] text-white shadow-md"
+                  : "bg-white text-slate-700 shadow hover:bg-slate-100"
               }`}
-            >
-              {category}
-            </button>
-          ))}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Portal Cards */}
-        <motion.div layout className="grid md:grid-cols-3 sm:grid-rows-6 lg:grid-cols-5 gap-5">
+        <motion.div
+          layout
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5"
+        >
           {filteredData.map((portal) => (
             <motion.div
               key={portal.id}
               layout
               whileHover={{
-                y: -8,
+                y: -6,
                 scale: 1.03,
               }}
-              className="bg-white rounded-2xl p-5 shadow-md cursor-pointer"
+              transition={{
+                duration: 0.25,
+              }}
+              className="bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all cursor-pointer"
             >
               <img
                 src={portal.logo}
                 alt={portal.name}
-                className="h-12 object-contain mx-auto"
+                className="h-12 md:h-14 object-contain mx-auto"
               />
 
-              <h3 className="text-center mt-4 font-medium">{portal.name}</h3>
+              <h3 className="text-center mt-4 font-medium text-sm md:text-base">
+                {portal.name}
+              </h3>
             </motion.div>
           ))}
         </motion.div>
@@ -132,124 +169,101 @@ export default function PostalServices() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-5 overflow-y-auto"
+            className="fixed inset-0 bg-black/50 flex items-center z-[9999]  justify-center p-3 md:p-5 overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
               transition={{ duration: 0.3 }}
-              className="bg-white w-full max-w-3xl rounded-3xl p-8"
+              className="bg-white w-full max-w-xl rounded-2xl p-4 md:p-6 my-4"
             >
-              <h3 className="text-3xl font-bold mb-2">Customer Details</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                Customer Details
+              </h3>
 
-              <p className="text-slate-500 mb-6">
+              <p className="text-sm md:text-base text-slate-500 mb-6">
                 Please provide your shipping and contact details.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {/* Full Name */}
-                <input
-                  type="text"
-                  placeholder="Full Name *"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
+                <div className="col-span-2">
+                  <input
+                    type="text"
+                    placeholder="Full Name *"
+                    className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
+                  />
+                </div>
 
-                {/* Phone */}
+                {/* Phone + Email */}
                 <input
                   type="tel"
-                  placeholder="Phone Number *"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
+                  placeholder="Phone *"
+                  className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
                 />
 
-                {/* Email */}
                 <input
                   type="email"
-                  placeholder="Email Address"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
+                  placeholder="Email"
+                  className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
                 />
 
-                {/* Alternate Phone */}
-                <input
-                  type="tel"
-                  placeholder="Alternate Phone"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
+                {/* Address */}
+                <div className="col-span-2">
+                  <input
+                    type="text"
+                    placeholder="Address *"
+                    className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
+                  />
+                </div>
 
-                {/* Address Line 1 */}
-                <input
-                  type="text"
-                  placeholder="Address Line 1 *"
-                  className="md:col-span-2 w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
-
-                {/* Address Line 2 */}
+                {/* City + State */}
                 <input
                   type="text"
-                  placeholder="Address Line 2"
-                  className="md:col-span-2 w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
+                  placeholder="City"
+                  className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
                 />
 
-                {/* City */}
                 <input
                   type="text"
-                  placeholder="City *"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
+                  placeholder="State"
+                  className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
                 />
 
-                {/* District */}
+                {/* PIN + Country */}
                 <input
                   type="text"
-                  placeholder="District"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
+                  placeholder="PIN Code"
+                  className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
                 />
 
-                {/* State */}
                 <input
                   type="text"
-                  placeholder="State *"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
-
-                {/* Country */}
-                <input
-                  type="text"
-                  placeholder="Country *"
                   defaultValue="India"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
-
-                {/* Pincode */}
-                <input
-                  type="text"
-                  placeholder="PIN Code *"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
-
-                {/* Landmark */}
-                <input
-                  type="text"
-                  placeholder="Landmark"
-                  className="w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
+                  placeholder="Country"
+                  className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#03689e]"
                 />
 
                 {/* Message */}
-                <textarea
-                  rows="4"
-                  placeholder="Additional Instructions / Message"
-                  className="md:col-span-2 w-full border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
-                />
+                <div className="col-span-2">
+                  <textarea
+                    rows="2"
+                    placeholder="Message"
+                    className="w-full border rounded-lg px-3 py-2.5 text-sm outline-none resize-none focus:ring-2 focus:ring-[#03689e]"
+                  />
+                </div>
               </div>
 
-              <div className="flex gap-4 mt-8">
+              <div className="flex flex-col sm:flex-row gap-3 mt-8">
                 <button
                   onClick={() => setShowModal(false)}
-                  className="flex-1 border border-slate-300 rounded-xl py-3 font-medium hover:bg-slate-100 transition"
+                  className="w-full sm:flex-1 border border-slate-300 rounded-xl py-3 font-medium hover:bg-slate-100 transition"
                 >
                   Cancel
                 </button>
 
-                <button className="flex-1 bg-[#03689e] text-white rounded-xl py-3 font-medium hover:bg-[#02557f] transition">
+                <button className="w-full sm:flex-1 bg-[#03689e] text-white rounded-xl py-3 font-medium hover:bg-[#02557f] transition">
                   Submit Request
                 </button>
               </div>
@@ -260,5 +274,3 @@ export default function PostalServices() {
     </section>
   );
 }
-
-
