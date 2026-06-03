@@ -46,11 +46,11 @@ export default function PostalServices() {
       : portals.filter((item) => item.category === activeCategory);
 
   return (
-    <section className="py-20 mt-5 bg-slate-50 min-h-screen">
+    <section className="py-20 mt-6 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold">Portal Services</h2>
+          <h2 className="text-3xl font-bold">Postal Services</h2>
 
           <p className="text-slate-500 mt-3">
             Choose your preferred portal and submit details.
@@ -58,7 +58,7 @@ export default function PostalServices() {
         </div>
 
         {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="sm:flex flex-wrap overflow-x-auto justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category}
@@ -76,7 +76,7 @@ export default function PostalServices() {
         </div>
 
         {/* Portal Cards */}
-        <motion.div layout className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <motion.div layout className="grid md:grid-cols-3 sm:grid-rows-6 lg:grid-cols-5 gap-5">
           {filteredData.map((portal) => (
             <motion.div
               key={portal.id}
@@ -261,4 +261,4 @@ export default function PostalServices() {
   );
 }
 
-// export default PostalServices;
+

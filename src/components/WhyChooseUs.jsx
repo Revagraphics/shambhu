@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </span>
 
-          <h2 className="text-4xl lg:text-5xl font-bold mt-5 text-slate-900">
+          <h2 className="text-2xl lg:text-5xl font-bold mt-5 text-slate-900">
             Trusted Logistics & Export
             <br />
             Partner For Your Business

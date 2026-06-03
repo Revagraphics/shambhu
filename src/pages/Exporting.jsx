@@ -43,7 +43,7 @@ const Exporting = () => {
                 About Shambhu Exporting
               </span>
 
-              <h2 className="text-5xl font-bold mt-6 text-gray-900 leading-tight">
+              <h2 className="text-2xl md:text-5xl  font-bold mt-6 text-gray-900 leading-tight">
                 Exporting Excellence Across
                 <span className="text-[#E0920F]"> Borders</span>
               </h2>

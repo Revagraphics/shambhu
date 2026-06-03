@@ -61,24 +61,46 @@ const features = [
 const Home = () => {
   const duplicatedLogos = [...logos, ...logos];
   return (
-    <>
-      <section className="min-h-screen bg-[#f8f9fc] flex items-center">
+    <div className="bg-white overflow-x-hidden">
+      <section className="min-h-screen mt-5 bg-[#f8f9fc] flex items-center">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
+          <div className="grid lg:grid-cols-2 gap-12 sm:gap-5 items-center">
+            {/* Left image */}
+            <div className="relative lg:order-2">
+              <img
+                src={hero}
+                alt="AASK Hero"
+                className="w-full h-auto object-contain"
+              />
+
+              {/* Floating Cards */}
+              <div className="hidden lg:block absolute top-10 left-0 bg-white shadow-lg rounded-xl p-4">
+                <p className="text-sm text-gray-500">Projects</p>
+                <h4 className="font-bold text-xl">175,950</h4>
+              </div>
+
+              <div className="hidden lg:block absolute bottom-10 right-0 bg-white shadow-lg rounded-xl p-4">
+                <p className="text-sm text-gray-500">Success Rate</p>
+                <h4 className="font-bold text-xl text-green-600">98%</h4>
+              </div>
+            </div>
+
+            <div className="lg:order-1">
               <span className="inline-flex items-center px-4 py-2 rounded-full border border-orange-300 text-orange-500 text-sm mb-6">
                 🌍 Global Trade Solutions
               </span>
 
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-gray-900">
+              <h1 className="text-2xl lg:text-7xl font-bold leading-tight text-gray-900">
                 Bridge Supply
                 <br />
                 and Demand <span className="text-[#E0920F]">Globally</span>
               </h1>
 
               <p className="mt-6 text-lg text-gray-600 max-w-xl">
-                At Shambhu Corporation, we bridge the gap between supply and demand. Through our robust infrastructure, we seamlessly navigate international trade regulations to export top-tier FMCG goods globally, while operating a dependable, secure postal service network that keeps businesses and communities connected.
+                At Shambhu Corporation, we bridge the gap between supply and
+                demand. Through our robust infrastructure, we seamlessly
+                navigate international trade regulations to export top-tier FMCG
+                goods globally.
               </p>
 
               <div className="flex flex-wrap gap-4 mt-10">
@@ -92,9 +114,9 @@ const Home = () => {
               </div>
 
               {/* Reviews */}
-              <div className="mt-14 inline-flex items-center gap-4 bg-white shadow-md rounded-full px-6 py-4">
+              <div className="mt-14 sm:mt-8 inline-flex items-center gap-4 bg-white shadow-md rounded-full sm:px-3 sm:py-2 px-6 py-4">
                 <div>
-                  <span className="text-yellow-500 text-2xl">★</span>
+                  <span className="text-yellow-500 sm:text-xl text-2xl">★</span>
                 </div>
 
                 <div>
@@ -122,25 +144,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="relative">
-              <img
-                src={hero}
-                alt="AASK Hero"
-                className="w-full h-auto object-contain"
-              />
-
-              {/* Floating Cards */}
-              <div className="hidden lg:block absolute top-10 left-0 bg-white shadow-lg rounded-xl p-4">
-                <p className="text-sm text-gray-500">Projects</p>
-                <h4 className="font-bold text-xl">175,950</h4>
-              </div>
-
-              <div className="hidden lg:block absolute bottom-10 right-0 bg-white shadow-lg rounded-xl p-4">
-                <p className="text-sm text-gray-500">Success Rate</p>
-                <h4 className="font-bold text-xl text-green-600">98%</h4>
-              </div>
-            </div>
+            {/* Right content */}
           </div>
         </div>
       </section>
@@ -150,7 +154,7 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Image */}
             <div className="relative flex justify-center">
-              <div className="absolute w-[450px] h-[450px] bg-[#03689e]/5 rounded-full"></div>
+              <div className="absolute w-[400px] h-[400px] bg-[#03689e]/5 rounded-full"></div>
 
               <img
                 src={hero2}
@@ -165,14 +169,16 @@ const Home = () => {
                 Why Choose Shambhu
               </span>
 
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
                 Global Trade
                 <br />
                 Made Simple
               </h2>
 
               <p className="text-lg text-gray-600 mb-10">
-                We simplify international commerce and postal operations through expert logistics, regulatory compliance, and reliable service networks.
+                We simplify international commerce and postal operations through
+                expert logistics, regulatory compliance, and reliable service
+                networks.
               </p>
 
               {/* Feature Cards */}
@@ -206,7 +212,8 @@ const Home = () => {
                       Global FMCG Export
                     </h4>
                     <p className="text-gray-600 mt-1">
-                      Access premium consumer goods distribution networks worldwide.
+                      Access premium consumer goods distribution networks
+                      worldwide.
                     </p>
                   </div>
                 </motion.div>
@@ -237,7 +244,8 @@ const Home = () => {
                       Seamless Compliance
                     </h4>
                     <p className="text-gray-600 mt-1">
-                      Navigate international trade regulations with expert guidance.
+                      Navigate international trade regulations with expert
+                      guidance.
                     </p>
                   </div>
                 </motion.div>
@@ -268,7 +276,8 @@ const Home = () => {
                       Reliable Postal Service
                     </h4>
                     <p className="text-gray-600 mt-1">
-                      Dependable delivery networks connecting businesses and communities.
+                      Dependable delivery networks connecting businesses and
+                      communities.
                     </p>
                   </div>
                 </motion.div>
@@ -299,7 +308,8 @@ const Home = () => {
                       Robust Infrastructure
                     </h4>
                     <p className="text-gray-600 mt-1">
-                      Efficient systems supporting comprehensive supply chain operations.
+                      Efficient systems supporting comprehensive supply chain
+                      operations.
                     </p>
                   </div>
                 </motion.div>
@@ -331,7 +341,7 @@ const Home = () => {
                 key={`${logo.id}-${index}`}
                 src={logo.logo}
                 alt={`Logo ${logo.id}`}
-                className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200 cursor-pointer inline-block"
+                className="h-12 w-auto sm:h-8 object-contain opacity-80 hover:opacity-100 transition-opacity duration-200 cursor-pointer inline-block"
               />
             ))}
           </motion.div>
@@ -348,14 +358,14 @@ const Home = () => {
                 Our Solutions
               </span>
 
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
                 Complete Trade
-                <br />
-                & Postal Support
+                <br />& Postal Support
               </h2>
 
               <p className="text-lg text-gray-600 mb-10">
-                From FMCG export to postal operations, we provide comprehensive solutions tailored to bridge supply and demand globally.
+                From FMCG export to postal operations, we provide comprehensive
+                solutions tailored to bridge supply and demand globally.
               </p>
 
               {/* Solution Cards */}
@@ -370,7 +380,8 @@ const Home = () => {
                       Global Export Solutions
                     </h4>
                     <p className="text-gray-600 mt-1">
-                      Premium FMCG products distributed across international markets.
+                      Premium FMCG products distributed across international
+                      markets.
                     </p>
                   </div>
                 </div>
@@ -383,7 +394,8 @@ const Home = () => {
                   <div>
                     <h4 className="font-semibold text-xl">Trade Compliance</h4>
                     <p className="text-gray-600 mt-1">
-                      Navigate regulations and documentation for smooth international trade.
+                      Navigate regulations and documentation for smooth
+                      international trade.
                     </p>
                   </div>
                 </div>
@@ -411,7 +423,8 @@ const Home = () => {
                   <div>
                     <h4 className="font-semibold text-xl">Postal Services</h4>
                     <p className="text-gray-600 mt-1">
-                      Reliable connectivity keeping businesses and communities connected.
+                      Reliable connectivity keeping businesses and communities
+                      connected.
                     </p>
                   </div>
                 </div>
@@ -440,14 +453,15 @@ const Home = () => {
               Shambhu Features
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold mt-5 text-slate-900">
+            <h2 className="text-2xl md:text-5xl font-bold mt-5 text-slate-900">
               Solutions Built For
               <br />
               Global Commerce
             </h2>
 
             <p className="text-slate-500 mt-5 max-w-2xl mx-auto">
-              Trade facilitation, postal services, and logistics solutions built for connecting businesses and communities worldwide.
+              Trade facilitation, postal services, and logistics solutions built
+              for connecting businesses and communities worldwide.
             </p>
           </div>
 
@@ -535,7 +549,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

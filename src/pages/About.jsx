@@ -73,7 +73,7 @@ const About = () => {
                 About Shambhu Corporation
               </span>
 
-              <h2 className="text-5xl font-bold mt-6 text-gray-900 leading-tight">
+              <h2 className="text-2xl md:text-5xl   font-bold mt-6 text-gray-900 leading-tight">
                 Delivering Excellence Across
                 <span className="text-[#E0920F]"> Borders</span>
               </h2>
@@ -171,7 +171,7 @@ const About = () => {
               Our Expertise
             </span>
 
-            <h2 className="text-5xl font-bold mt-5">
+            <h2 className="text-2xl md:text-5xl  font-semibold mt-5">
               What We Do Best
             </h2>
           </motion.div>
