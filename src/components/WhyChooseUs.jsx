@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full border border-[#03689e] text-[#03689e] text-sm font-medium">
+          <span className="inline-block px-4 py-2 rounded-full border border-[#E0920F] text-[#E0920F] text-sm font-medium">
             Why Choose Us
           </span>
 
@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
                 >
                   <div className="flex items-center gap-4">
 
-                    <div className="w-12 h-12 rounded-xl bg-[#03689e]/10 flex items-center justify-center text-[#03689e] text-xl">
+                    <div className="w-12 h-12 rounded-xl bg-[#03689e]/10 flex items-center justify-center text-[#E0920F] text-xl">
                       {faq.icon}
                     </div>
 

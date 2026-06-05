@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import hero from "../assets/com-1.png";
 import hero2 from "../assets/com-2.png";
+import hero3 from "../assets/about3.png";
 import logo1 from "../assets/logo1.svg";
 import logo2 from "../assets/logo2.svg";
 import logo3 from "../assets/logo3.svg";
@@ -62,11 +63,12 @@ const Home = () => {
   const duplicatedLogos = [...logos, ...logos];
   return (
     <div className="bg-white overflow-x-hidden">
-      <section className="min-h-screen mt-5 bg-[#f8f9fc] flex items-center">
+
+      <section className="min-h-screen bg-[#f8f9fc] flex items-center">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12 py-20">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-5 items-center">
             {/* Left image */}
-            <div className="relative lg:order-2">
+            <div className="relative mt-4 lg:order-2">
               <img
                 src={hero}
                 alt="AASK Hero"
@@ -438,7 +440,7 @@ const Home = () => {
               <div className="absolute w-[450px] h-[450px] bg-[#03689e]/5 rounded-full"></div>
 
               <img
-                src={hero2}
+                src={hero3}
                 alt="Solutions"
                 className="relative z-10 max-w-md w-full"
               />
@@ -448,7 +450,7 @@ const Home = () => {
       </section>
 
       <section className="py-24 bg-slate-50 overflow-hidden">
-        <div className="max-w-[90vw] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
           <div className="text-center mb-20">
             <span className="inline-block px-4 py-2 border border-[#ffac1c] text-[#E0920F] rounded-full text-sm">
@@ -484,7 +486,7 @@ const Home = () => {
               <img
                 src={planeImg}
                 alt="Recruitment Solutions"
-                className="max-w-[850px] w-full"
+                className="max-w-[900px] w-full"
               />
             </motion.div>
 

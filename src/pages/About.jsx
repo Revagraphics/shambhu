@@ -7,7 +7,8 @@ import {
   FaBoxOpen,
 } from "react-icons/fa";
 
-import about from "../assets/com-4.png"
+import WhyChooseUs from "../components/WhyChooseUs";
+import about from "../assets/about3.png"
 
 const About = () => {
   const services = [
@@ -226,6 +227,8 @@ const About = () => {
 
         </div>
       </section>
+
+      <WhyChooseUs/>
 
     </div>
   );

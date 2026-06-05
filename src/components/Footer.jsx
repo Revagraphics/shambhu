@@ -127,7 +127,8 @@ const Footer = () => {
                   className="hover:text-white transition"
                 >
                   shambhu220670@gmail.com
-                </a> <br/>
+                </a>{" "}
+                <br />
                 <a
                   href="mailto:shambhu22@yahoo.co.uk"
                   className="hover:text-white transition"
@@ -149,10 +150,9 @@ const Footer = () => {
                 <p className="leading-relaxed">
                   B-011,GF,TOWER-B,AAKRITI
                   <br />
-                  SHANTI NIKETAN , 143-B, <br/>
-                  NOIDA, 201301, <br/> 
-                  Uttar Pradesh, India 
-                
+                  SHANTI NIKETAN , 143-B, <br />
+                  NOIDA, 201301, <br />
+                  Uttar Pradesh, India
                 </p>
               </div>
             </div>
@@ -161,7 +161,18 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
-          <p>© 2026 Commerce. All rights reserved.</p>
+          <p className="">
+            © Copyright 2026 by <Link to="/">SHAMBHU CORPORATION</Link> All
+            rights reserved. Designed &amp; Developed with{" "}
+            <span className="heart">
+              <i clasNames="ti-heart"></i>
+            </span>{" "}
+            By{" "}
+            <a href="http://www.revagraphics.com/" target="_blank">
+              {" "}
+              Reva Graphics
+            </a>
+          </p>
 
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link to="#" className="hover:text-gray-300 transition">

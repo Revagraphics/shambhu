@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 // import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import Login from "./pages/Login";
+import AuthPage from "./pages/AuthPage";
 // import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import PostalServices from "./pages/PostalServices";
@@ -18,14 +18,14 @@ import GoToTop from "./components/GoToTop";
 function App() {
   return (
     <>
-      
+      <GoToTop/>
+
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/services" element={<Services />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<AuthPage />} />
         <Route path="/exporting" element={<Exporting />} />
         <Route path="/postal" element={<PostalServices />} />
         <Route path="/fmcg" element={<Fmcg />} />

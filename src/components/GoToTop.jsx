@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-export default function GoToTop(){
+export default function GoToTop() {
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
 
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // Show button after scrolling
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
+      setVisible(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -24,18 +31,13 @@ export default function GoToTop(){
   };
 
   return (
-    <>
-      {visible && (
-        <button
-        title="Go-top"
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-[9999] bg-[#f97316] text-black px-4 py-2 rounded-full shadow-lg hover:scale-110 transition-all duration-300"
-        >
-          ↑
-        </button>
-      )}
-    </>
+    visible && (
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 bg-orange-500 p-2 text-white rounded-md right-6 z-[9999]"
+      >
+        ↑
+      </button>
+    )
   );
-};
-
-
+}
