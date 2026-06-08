@@ -37,25 +37,25 @@ const Footer = () => {
             <div className="flex gap-4 mt-8">
               <a
                 href="#"
-                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#03689e] flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#03689e] flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
               >
                 <FaInstagram />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#03689e] flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
               >
                 <FaTwitter />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#03689e] flex items-center justify-center transition-all"
+                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
               >
                 <FaLinkedinIn />
               </a>
@@ -163,13 +163,12 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
-          <p className="">
-            © Copyright 2026 by <Link to="/">SHAMBHU CORPORATION</Link> All
+          <p className=" flex items-center">
+            © Copyright 2026 by <Link to="/">&thinsp;SHAMBHU CORPORATION&thinsp;</Link> All
             rights reserved. Designed &amp; Developed with{" "}
-            <span className="heart">
-              <i clasNames="ti-heart"></i>
-            </span>{" "}
+            &nbsp;
             <FaHeart/>
+            &nbsp;
             By{" "}
             <a href="http://www.revagraphics.com/" target="_blank">
               {" "}
