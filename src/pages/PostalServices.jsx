@@ -238,7 +238,7 @@ export default function PostalServices() {
               onClick={handleSubmitRequest}
               className="w-full bg-[#ffac1c] hover:bg-[#E0920F] text-white py-4 rounded-xl font-semibold text-lg transition"
             >
-              Submit Request
+              Add Product To Cart
             </button>
           </div>
         </div>

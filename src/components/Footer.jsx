@@ -3,8 +3,10 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
+  FaHeart,
   FaTwitter,
 } from "react-icons/fa";
+
 
 import logo from "../assets/logoo.png";
 
@@ -167,6 +169,7 @@ const Footer = () => {
             <span className="heart">
               <i clasNames="ti-heart"></i>
             </span>{" "}
+            <FaHeart/>
             By{" "}
             <a href="http://www.revagraphics.com/" target="_blank">
               {" "}
