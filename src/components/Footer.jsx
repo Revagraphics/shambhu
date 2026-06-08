@@ -7,7 +7,6 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-
 import logo from "../assets/logoo.png";
 
 const Footer = () => {
@@ -162,24 +161,32 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
-          <p className=" flex items-center">
-            © Copyright 2026 by <Link to="/">&thinsp;SHAMBHU CORPORATION&thinsp;</Link> All
-            rights reserved. Designed &amp; Developed with{" "}
-            &nbsp;
-            <FaHeart/>
-            &nbsp;
-            By{" "}
-            <a href="http://www.revagraphics.com/" target="_blank">
-              {" "}
+        <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col lg:flex-row items-center justify-between gap-4">
+          <p className="flex flex-wrap items-center justify-center lg:justify-start text-center lg:text-left text-sm text-gray-500 leading-6">
+            © Copyright 2026 by
+            <Link to="/" className="mx-1 hover:text-white transition">
+              SHAMBHU CORPORATION
+            </Link>
+            All rights reserved. Designed & Developed with
+            <span className="mx-1 text-red-500">
+              <FaHeart />
+            </span>
+            By
+            <a
+              href="http://www.revagraphics.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 hover:text-white transition"
+            >
               Reva Graphics
             </a>
           </p>
 
-          <div className="flex gap-6 mt-4 md:mt-0">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
             <Link to="#" className="hover:text-gray-300 transition">
               Privacy Policy
             </Link>
+
             <Link to="#" className="hover:text-gray-300 transition">
               Terms of Service
             </Link>
