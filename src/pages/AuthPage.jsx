@@ -24,8 +24,7 @@ const AuthPage = () => {
           <form className="space-y-4">
             
             {!isLogin && (
-              <div>
-                <label className="block text-sm font-medium mb-1">
+              <div> <label className="block text-sm font-medium mb-1">
                   Full Name
                 </label>
                 <input

@@ -206,7 +206,7 @@ export default function PostalServices() {
               <button
                 onClick={handleCheckUrl}
                 disabled={isChecking || !productUrl.trim()}
-                className="bg-gray-700 hover:bg-gray-800 disabled:bg-gray-400 mt-3 text-white px-8 py-4 rounded-xl font-medium transition flex items-center gap-2"
+                className="bg-gray-700 hover:bg-gray-800 disabled:bg-gray-400 mt-3 md:mt-0 lg:mt-0 text-white px-8 py-4 rounded-xl font-medium transition flex items-center gap-2"
               >
                 {isChecking ? "Checking..." : "Check URL"}
               </button>

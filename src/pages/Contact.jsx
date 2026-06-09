@@ -8,7 +8,7 @@ import {
   FaRegClock,     // Replaces Clock (Regular outline)
   FaCheckCircle,  // Replaces CheckCircle
   FaArrowRight,   // Replaces ArrowRight
-  FaBoxes         // Replaces MailBulk/FMCG asset visuals
+  FaBoxes ,         // Replaces MailBulk/FMCG asset visuals
 } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -33,9 +33,7 @@ export default function ContactPage() {
 
   // Office Hubs Data for Section 2
   const globalHubs = [
-    { city: "New Delhi (HQ)", role: "Corporate & FMCG Export Desk", hours: "09:00 - 18:00 IST", status: "Open Now", phone: "+91 98XXX XXXXX" },
-    { city: "Port of Mumbai", role: "Maritime Shipping & Logistics", hours: "24 Hours Operational", status: "Open Now", phone: "+91 22XXX XXXXX" },
-    { city: "Dubai Hub", role: "Middle East Postal Transit", hours: "08:00 - 17:00 GST", status: "Closed", phone: "+971 4XXX XXXX" },
+    { city: "Noida (HQ)", role: "Corporate & FMCG Export Desk", hours: "09:00 - 18:00 IST", status: "Open Now", phone: "+91 98XXX XXXXX" }
   ];
 
   return (
@@ -87,7 +85,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-100">Headquarters</h4>
-                    <p className="text-sm text-slate-100 mt-0.5">Shambhu Corp Towers, Prime Business District, New Delhi, India</p>
+                    <p className="text-sm text-slate-100 mt-0.5">B-001,GF,TOWER-B,AAKRITI SHANTI NIKETAN , 143-B, NOIDA, 201304, Uttar Pradesh, India</p>
                   </div>
                 </div>
 
@@ -107,7 +105,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-100">Official Channels</h4>
-                    <p className="text-sm text-slate-100 mt-0.5">operations@shambhucorporation.com</p>
+                    <p className="text-sm text-slate-100 mt-0.5">operations@shambhucorp.com</p>
                   </div>
                 </div>
               </div>
@@ -165,7 +163,9 @@ export default function ContactPage() {
                   <div className="flex flex-col">
                     <label className="text-xs font-bold uppercase text-slate-500 mb-1.5 tracking-wide">Primary Target Department</label>
                     <select className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-[#1a56db] focus:ring-2 focus:ring-blue-100 transition cursor-pointer">
+                      <option>Import</option>
                       <option>FMCG Export Division</option>
+                      <option>Trading Related</option>
                       <option>International Postal Networks</option>
                       <option>Customs Clearance & Regulatory</option>
                       <option>General Corporate Office</option>

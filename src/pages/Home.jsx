@@ -10,6 +10,7 @@ import logo4 from "../assets/logo4.svg";
 import logo5 from "../assets/logo5.svg";
 import logo6 from "../assets/logo6.svg";
 import planeImg from "../assets/com-3.png";
+// import BannerSlider from "../components/BannerSlider"
 
 const logos = [
   { id: 1, logo: logo1 },
@@ -22,36 +23,42 @@ const logos = [
 
 const features = [
   {
+    id:1,
     title: "Global FMCG Export",
     desc: "Premium consumer goods delivered worldwide.",
     icon: "🌍",
     position: "top-[10%] left-[5%]",
   },
   {
+    id:2,
     title: "Trade Compliance",
     desc: "Navigate international regulations seamlessly.",
     icon: "📋",
     position: "top-[10%] right-[5%]",
   },
   {
+    id:3,
     title: "Secure Logistics",
     desc: "Dependable supply chain management.",
     icon: "🚚",
     position: "top-[40%] left-0",
   },
   {
+    id:4,
     title: "Postal Network",
     desc: "Connected communities through reliable delivery.",
     icon: "📮",
     position: "top-[40%] right-0",
   },
   {
+    id:5,
     title: "Infrastructure",
     desc: "Robust systems for efficient operations.",
     icon: "🏗️",
     position: "bottom-[8%] left-[5%]",
   },
   {
+    id:6,
     title: "Business Connectivity",
     desc: "Keeping enterprises and communities linked.",
     icon: "🤝",
@@ -63,6 +70,8 @@ const Home = () => {
   const duplicatedLogos = [...logos, ...logos];
   return (
     <div className="bg-white overflow-x-hidden">
+
+      {/* <BannerSlider/> */}
 
       <section className="min-h-screen bg-[#f8f9fc] flex items-center">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12 py-20">
@@ -491,15 +500,15 @@ const Home = () => {
             </motion.div>
 
             {/* Cards */}
-            {features.map((item, index) => (
+            {features.map((item) => (
               <motion.div
-                key={index}
+                key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{
                   duration: 0.6,
-                  delay: index * 0.1,
+                  delay: item.id * 0.1,
                   ease: "easeInOut",
                 }}
                 whileHover={{

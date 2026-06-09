@@ -149,10 +149,10 @@ const Footer = () => {
               <div>
                 <p className="text-gray-400">Address</p>
                 <p className="leading-relaxed">
-                  B-011,GF,TOWER-B,AAKRITI
+                  B-001,GF,TOWER-B,AAKRITI
                   <br />
                   SHANTI NIKETAN , 143-B, <br />
-                  NOIDA, 201301, <br />
+                  NOIDA, 201304, <br />
                   Uttar Pradesh, India
                 </p>
               </div>

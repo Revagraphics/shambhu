@@ -8,28 +8,27 @@ import exportt from "../assets/export.jpg";
 
 const faqs = [
   {
+    id:1,
     icon: <FaGlobe />,
     question: "Do you provide international export services?",
-    answer:
-      "Yes, we facilitate exports to multiple countries with complete logistics, customs support, and documentation assistance.",
+    answer:"Yes, we facilitate exports to multiple countries with complete logistics, customs support, and documentation assistance.",
   },
   {
+    id:2,
     icon: <FaShippingFast />,
     question: "How fast are your courier and postal services?",
-    answer:
-      "Our network ensures timely deliveries with real-time tracking and dependable transit schedules.",
+    answer:"Our network ensures timely deliveries with real-time tracking and dependable transit schedules.",
   },
-  {
+  {id:3,
     icon: <FaShieldAlt />,
     question: "Are shipments insured and secure?",
-    answer:
-      "Absolutely. We follow strict handling procedures and offer secure shipment options for valuable consignments.",
+    answer:"Absolutely. We follow strict handling procedures and offer secure shipment options for valuable consignments.",
   },
   {
+  id:4,
     icon: <FaHeadset />,
     question: "Do you provide customer support?",
-    answer:
-      "Our dedicated support team is available to assist with shipment tracking, export documentation, and service inquiries.",
+    answer:"Our dedicated support team is available to assist with shipment tracking, export documentation, and service inquiries.",
   },
 ];
 
@@ -69,16 +68,16 @@ export default function WhyChooseUs() {
           {/* FAQ Section */}
           <div className="space-y-5">
 
-            {faqs.map((faq, index) => (
+            {faqs.map((faq) => (
               <motion.div
-                key={index}
+                key={faq.id}
                 layout
                 whileHover={{ y: -3 }}
                 className="bg-white rounded-2xl shadow-md overflow-hidden"
               >
                 <button
                   onClick={() =>
-                    setActive(active === index ? null : index)
+                    setActive(active === faq.id ? null : faq.id)
                   }
                   className="w-full p-6 flex items-center justify-between text-left"
                 >
@@ -95,7 +94,7 @@ export default function WhyChooseUs() {
 
                   <motion.div
                     animate={{
-                      rotate: active === index ? 180 : 0,
+                      rotate: active === faq.id ? 180 : 0,
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -104,7 +103,7 @@ export default function WhyChooseUs() {
                 </button>
 
                 <AnimatePresence>
-                  {active === index && (
+                  {active === faq.id && (
                     <motion.div
                       initial={{
                         height: 0,
@@ -200,4 +199,6 @@ export default function WhyChooseUs() {
       </div>
     </section>
   );
+
+
 }
