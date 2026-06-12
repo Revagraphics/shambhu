@@ -1,6 +1,9 @@
 import React from "react";
 import about from "../assets/about3.png";
 
+import trade from "../assets/trade.jpg";
+import sustainable from "../assets/sustainable.jpg";
+
 const Trading = () => {
   return (
     <div className="bg-white">
@@ -17,7 +20,7 @@ const Trading = () => {
           </h1>
 
           <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-300">
-            Shambhu Corporation facilitates seamless global trade by connecting
+            Shambhu Corporation facilitates seamless global trade by bridging
             manufacturers, suppliers, distributors, and buyers through trusted
             business networks and strategic market expertise.
           </p>
@@ -30,7 +33,7 @@ const Trading = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src={about}
+                src={trade}
                 alt="Global Trading"
                 className="w-full rounded-3xl shadow-xl"
               />
@@ -108,7 +111,7 @@ const Trading = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src={about}
+                src={sustainable}
                 alt="Business Development"
                 className="w-full rounded-3xl shadow-xl"
               />

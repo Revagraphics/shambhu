@@ -55,7 +55,7 @@ const Import = () => {
             transition={{ duration: 0.8 }}
             className="text-white text-center"
           >
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+            <h1 className="text-2xl lg:text-5xl font-bold leading-tight mb-6">
               Import Solutions for <span className="text-[#ffac1c]">Your Business</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
@@ -77,7 +77,7 @@ const Import = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-slate-900 mb-4">Our Import Process</h2>
+            <h2 className="text-2xl lg:text-5xl font-bold text-slate-900 mb-4">Our Import Process</h2>
             <p className="text-xl text-slate-600">4 Simple Steps to Import Products Efficiently</p>
           </div>
 

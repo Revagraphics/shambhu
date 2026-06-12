@@ -10,13 +10,13 @@ const faqs = [
   {
     id:1,
     icon: <FaGlobe />,
-    question: "Do you provide international export services?",
+    question: "Do we provide international export services?",
     answer:"Yes, we facilitate exports to multiple countries with complete logistics, customs support, and documentation assistance.",
   },
   {
     id:2,
     icon: <FaShippingFast />,
-    question: "How fast are your courier and postal services?",
+    question: "How fast is our courier and postal services?",
     answer:"Our network ensures timely deliveries with real-time tracking and dependable transit schedules.",
   },
   {id:3,
@@ -27,7 +27,7 @@ const faqs = [
   {
   id:4,
     icon: <FaHeadset />,
-    question: "Do you provide customer support?",
+    question: "Do we provide customer support?",
     answer:"Our dedicated support team is available to assist with shipment tracking, export documentation, and service inquiries.",
   },
 ];
