@@ -9,18 +9,17 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
+    minify: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor': ['react', 'react-dom', 'react-router-dom'],
-          'framer': ['framer-motion'],
-          'icons': ['react-icons'],
+        manualChunks: (id) => {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router-dom')) {
+            return 'vendor';
+          } else if (id.includes('node_modules/framer-motion')) {
+            return 'framer';
+          } else if (id.includes('node_modules/react-icons')) {
+            return 'icons';
+          }
         },
       },
     },

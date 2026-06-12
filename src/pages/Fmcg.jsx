@@ -103,6 +103,37 @@ const products = [
     category: "Personal Care",
     image: care7,
   },
+  // Herbal Products
+  {
+    id: 16,
+    name: "Pure Ashwagandha Powder",
+    category: "Harbals",
+    image: "https://images.unsplash.com/photo-1569936906148-06de87cb0681?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 17,
+    name: "Organic Turmeric Supplement",
+    category: "Harbals",
+    image: "https://plus.unsplash.com/premium_photo-1726862790171-0d6208559224?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VHVybWVyaWN8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    id: 18,
+    name: "Neem Leaves Extract",
+    category: "Harbals",
+    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=500",
+  },
+  {
+    id: 19,
+    name: "Brahmi Herbal Capsules",
+    category: "Harbals",
+    image: "https://images.unsplash.com/photo-1492552085122-36706c238263?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhlcmJhbHxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: 20,
+    name: "Triphala Digestive Powder",
+    category: "Harbals",
+    image: "https://images.unsplash.com/photo-1693996046865-19217d179161?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RGlnZXN0aXZlJTIwcG93ZGVyfGVufDB8fDB8fHww",
+  },
 ];
 
 export default function FmcgProducts() {
