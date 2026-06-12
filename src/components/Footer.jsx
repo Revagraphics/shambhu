@@ -1,9 +1,9 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaHeart,
   FaTwitter,
 } from "react-icons/fa";
 
@@ -21,10 +21,8 @@ const Footer = () => {
                 src={logo}
                 alt="Commerce Logo"
                 className="h-[100px] rounded-2xl w-[140px]"
+                loading="lazy"
               />
-              {/* <span className="text-3xl font-bold tracking-wide text-white">
-                Commerce
-              </span> */}
             </div>
 
             <p className="text-gray-400 max-w-md text-[15px] leading-relaxed">
@@ -37,24 +35,28 @@ const Footer = () => {
               <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
+                aria-label="Facebook"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
+                aria-label="Instagram"
               >
                 <FaInstagram />
               </a>
               <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
+                aria-label="Twitter"
               >
                 <FaTwitter />
               </a>
               <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
+                aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
               </a>
@@ -89,7 +91,7 @@ const Footer = () => {
             <ul className="space-y-3 text-[15px]">
               <li>
                 <Link
-                  to="/services/exporting"
+                  to="/exporting"
                   className="hover:text-white transition"
                 >
                   Exporting
@@ -97,7 +99,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/postal"
+                  to="/postal"
                   className="hover:text-white transition"
                 >
                   Postal Services
@@ -105,7 +107,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/services/fmcg"
+                  to="/fmcg"
                   className="hover:text-white transition"
                 >
                   FMCG Products
@@ -148,48 +150,26 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-gray-400">Address</p>
-                <p className="leading-relaxed">
-                  B-001,GF,TOWER-B,AAKRITI
-                  <br />
-                  SHANTI NIKETAN , 143-B, <br />
-                  NOIDA, 201304, <br />
-                  Uttar Pradesh, India
-                </p>
+                <p>123 Commerce Street, Global Hub, GH 12345</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col lg:flex-row items-center justify-between gap-4">
-          <p className="flex flex-wrap items-center justify-center lg:justify-start text-center lg:text-left text-sm text-gray-500 leading-6">
-            © Copyright 2026 by
-            <Link to="/" className="mx-1 hover:text-white transition">
-              SHAMBHU CORPORATION
-            </Link>
-            All rights reserved. Designed & Developed with
-            <span className="mx-1 text-red-500">
-              <FaHeart />
-            </span>
-            By
-            <a
-              href="http://www.revagraphics.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-1 hover:text-white transition"
-            >
-              Reva Graphics
-            </a>
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
-            <Link to="#" className="hover:text-gray-300 transition">
-              Privacy Policy
-            </Link>
-
-            <Link to="#" className="hover:text-gray-300 transition">
-              Terms of Service
-            </Link>
+        {/* Divider */}
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm">
+              © 2024 Shambhu Corporation. All rights reserved.
+            </p>
+            <div className="flex gap-6 mt-4 md:mt-0 text-sm">
+              <a href="#" className="text-gray-500 hover:text-white transition">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-500 hover:text-white transition">
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -197,4 +177,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

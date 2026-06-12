@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
@@ -10,13 +10,18 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  const toggleMobileMenu = () => setIsMobileOpen(!isMobileOpen);
+  const toggleServicesDropdown = () => setIsServicesOpen((prev) => !prev);
+  const closeMobileMenu = () => setIsMobileOpen(false);
+  const closeServicesDropdown = () => setIsServicesOpen(false);
+
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[90%] z-[999] bg-white rounded-3xl border border-gray-200 shadow-lg">
       <div className="max-w-[90vw] mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo with Image */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Commerce Logo" className="h-auto w-[100px]" />
+          <Link to="/" className="flex items-center gap-3 flex-shrink-0">
+            <img src={logo} alt="Commerce Logo" className="h-auto w-[100px]" loading="lazy" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,7 +49,7 @@ const Navbar = () => {
                     ? "text-[#ffac1c]"
                     : "text-gray-700 hover:text-[#E0920F]"
                 }`}
-                onClick={() => setIsServicesOpen((prev) => !prev)}
+                onClick={toggleServicesDropdown}
               >
                 Services
                 {isServicesOpen ? (
@@ -60,7 +65,7 @@ const Navbar = () => {
                   <Link
                     to="/import"
                     className="block px-6 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#E0920F] transition"
-                    onClick={() => setIsServicesOpen(false)}
+                    onClick={closeServicesDropdown}
                   >
                     Import
                   </Link>
@@ -68,7 +73,7 @@ const Navbar = () => {
                   <Link
                     to="/exporting"
                     className="block px-6 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#E0920F] transition"
-                    onClick={() => setIsServicesOpen(false)}
+                    onClick={closeServicesDropdown}
                   >
                     Exporting
                   </Link>
@@ -76,7 +81,7 @@ const Navbar = () => {
                   <Link
                     to="/postal"
                     className="block px-6 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#E0920F] transition"
-                    onClick={() => setIsServicesOpen(false)}
+                    onClick={closeServicesDropdown}
                   >
                     Postal Services
                   </Link>
@@ -84,7 +89,7 @@ const Navbar = () => {
                   <Link
                     to="/fmcg"
                     className="block px-6 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#E0920F] transition"
-                    onClick={() => setIsServicesOpen(false)}
+                    onClick={closeServicesDropdown}
                   >
                     FMCG Products
                   </Link>
@@ -103,15 +108,16 @@ const Navbar = () => {
           {/* contact Button */}
           <Link
             to="/contact"
-            className="hidden md:block px-6 py-2.5 rounded-2xl bg-[#ffac1c] text-white hover:bg-[#E0920F] transition font-medium"
+            className="hidden md:block px-6 py-2.5 rounded-2xl bg-[#ffac1c] text-white hover:bg-[#E0920F] transition font-medium flex-shrink-0"
           >
             Contact Us
           </Link>
 
           {/* Hamburger Button */}
           <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            onClick={toggleMobileMenu}
             className="md:hidden p-2 text-gray-700"
+            aria-label="Toggle mobile menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +151,7 @@ const Navbar = () => {
             <Link
               to="/"
               className={`block px-4 py-3 rounded-2xl ${isActive("/") ? "bg-[#ffac1c] text-white" : "text-gray-700 hover:bg-gray-50"}`}
-              onClick={() => setIsMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               Home
             </Link>
@@ -153,68 +159,66 @@ const Navbar = () => {
             <Link
               to="/about"
               className={`block px-4 py-3 rounded-2xl ${isActive("/about") ? "bg-[#ffac1c] text-white" : "text-gray-700 hover:bg-gray-50"}`}
-              onClick={() => setIsMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               About
             </Link>
 
-            <div>
-              <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className={`w-full text-left px-4 py-3 flex items-center justify-between rounded-2xl ${isActive("/services") ? "bg-[#03689e] text-white" : "text-gray-700 hover:bg-gray-50"}`}
-              >Services
-                <span> {isServicesOpen ? <FaChevronUp /> : <FaChevronDown />} </span>
-              </button>
+            <button
+              onClick={toggleServicesDropdown}
+              className="w-full text-left px-4 py-3 rounded-2xl text-gray-700 hover:bg-gray-50 font-medium flex justify-between items-center"
+            >
+              Services
+              {isServicesOpen ? <FaChevronUp className="text-xs" /> : <FaChevronDown className="text-xs" />}
+            </button>
 
-              {isServicesOpen && (
-                <div className="ml-6 mt-2 space-y-2">
-                  <Link
-                    to="/import"
-                    className="block px-4 py-2 text-gray-600 hover:text-[#ffac1c]"
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    Import
-                  </Link>
-
-                  <Link
-                    to="/exporting"
-                    className="block px-4 py-2 text-gray-600 hover:text-[#ffac1c]"
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    Exporting
-                  </Link>
-                  <Link
-                    to="/postal"
-                    className="block px-4 py-2 text-gray-600 hover:text-[#ffac1c]"
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    Postal Services
-                  </Link>
-                  <Link
-                    to="/fmcg"
-                    className="block px-4 py-2 text-gray-600 hover:text-[#ffac1c]"
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    FMCG Products
-                  </Link>
-                </div>
-              )}
-            </div>
+            {isServicesOpen && (
+              <div className="bg-gray-50 rounded-2xl py-3 px-4 space-y-3">
+                <Link
+                  to="/import"
+                  className="block text-gray-700 hover:text-[#E0920F] transition"
+                  onClick={closeMobileMenu}
+                >
+                  Import
+                </Link>
+                <Link
+                  to="/exporting"
+                  className="block text-gray-700 hover:text-[#E0920F] transition"
+                  onClick={closeMobileMenu}
+                >
+                  Exporting
+                </Link>
+                <Link
+                  to="/postal"
+                  className="block text-gray-700 hover:text-[#E0920F] transition"
+                  onClick={closeMobileMenu}
+                >
+                  Postal Services
+                </Link>
+                <Link
+                  to="/fmcg"
+                  className="block text-gray-700 hover:text-[#E0920F] transition"
+                  onClick={closeMobileMenu}
+                >
+                  FMCG Products
+                </Link>
+              </div>
+            )}
 
             <Link
               to="/trading"
               className={`block px-4 py-3 rounded-2xl ${isActive("/trading") ? "bg-[#ffac1c] text-white" : "text-gray-700 hover:bg-gray-50"}`}
-              onClick={() => setIsMobileOpen(false)}
+              onClick={closeMobileMenu}
             >
               Trading
             </Link>
 
             <Link
               to="/contact"
-              className="block w-full text-center mt-6 px-6 py-3 bg-[#ffac1c] text-white rounded-2xl hover:bg-[#E0920F]"
-              onClick={() => setIsMobileOpen(false)}
+              className="block px-4 py-3 rounded-2xl bg-[#ffac1c] text-white hover:bg-[#E0920F] transition font-medium"
+              onClick={closeMobileMenu}
             >
-              Contact
+              Contact Us
             </Link>
           </div>
         )}
@@ -223,4 +227,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

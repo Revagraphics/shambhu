@@ -129,8 +129,8 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-md border border-slate-100 flex flex-col justify-center"
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">Send an Official Inquiry</h3>
-            <p className="text-gray-500 text-sm mb-6">Our compliance and ticketing division will register and reply within 12 working hours.</p>
+            <h3 className="text-2xl font-bold text-slate-900 mb-5">Send an Official Inquiry</h3>
+            {/* <p className="text-gray-500 text-sm mb-6">Our compliance and ticketing division will register and reply within 12 working hours.</p> */}
 
             {formSubmitted ? (
               <motion.div 

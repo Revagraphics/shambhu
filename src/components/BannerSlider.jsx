@@ -1,34 +1,41 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
+
+import slider1 from "../assets/slider-3.jpg"
+import slider2 from "../assets/slider-2.jpg"
+import slider3 from "../assets/slider-1.jpg"
 
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000",
-    title: "Building Tomorrow's Infrastructure",
-    subtitle: "Delivering excellence in construction, engineering, and industrial solutions with unmatched quality and reliability.",
+    image: slider1,
+    title: "Connecting Global Markets Through Trusted Trade",
+    subtitle:
+      "Delivering premium FMCG products and reliable export solutions to businesses across international markets with efficiency and confidence.",
     btn1: "Our Services",
     btn2: "Get Quote",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2000",
-    title: "Trusted Industrial Partner",
-    subtitle: "From planning to execution, Shambhu Corporation ensures precision, safety, and long-term value for every project.",
-    btn1: "Explore Projects",
+    image: slider2,
+    title: "Your Partner in Import & Export Excellence",
+    subtitle:
+      "From sourcing and documentation to logistics and delivery, we ensure seamless international trade experiences for our clients.",
+    btn1: "Explore Services",
     btn2: "Contact Us",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000",
-    title: "Innovation Meets Expertise",
-    subtitle: "Combining technology, skilled professionals, and proven processes to create sustainable business solutions.",
-    btn1: "View Portfolio",
+    image: slider3,
+    title: "Driving Growth Through Global Commerce",
+    subtitle:
+      "Leveraging strong supply chains, trusted partnerships, and industry expertise to connect businesses with opportunities worldwide.",
+    btn1: "View Network",
     btn2: "Learn More",
   },
 ];
 
-export default function BannerSlider() {
+const BannerSlider = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -39,93 +46,80 @@ export default function BannerSlider() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleIndicatorClick = useCallback((index) => {
+    setCurrent(index);
+  }, []);
+
+  const slideContent = useMemo(() => slides[current], [current]);
+
   return (
     <section className="relative h-screen overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slides[current].id}
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0"
-        >
-          <img
-            src={slides[current].image}
-            alt={slides[current].title}
-            className="w-full h-full object-cover"
-          />
+      <motion.div
+        key={slides[current].id}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute inset-0"
+      >
+        <img
+          src={slideContent.image}
+          alt={slideContent.title}
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
 
-          <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/60" />
 
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
-              <div className="max-w-3xl">
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+            <div className="max-w-3xl">
+              <span className="inline-block mb-5 px-4 py-2 rounded-full bg-yellow-500 text-black font-semibold text-sm">
+                SHAMBHU CORPORATION
+              </span>
 
-                <motion.span
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-block mb-5 px-4 py-2 rounded-full bg-yellow-500 text-black font-semibold text-sm"
-                >
-                  SHAMBHU CORPORATION
-                </motion.span>
+              <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                {slideContent.title}
+              </h1>
 
-                <motion.h1
-                  initial={{ y: 60, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
-                >
-                  {slides[current].title}
-                </motion.h1>
+              <p className="text-gray-200 text-lg md:text-xl mt-6 leading-relaxed max-w-2xl">
+                {slideContent.subtitle}
+              </p>
 
-                <motion.p
-                  initial={{ y: 60, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-gray-200 text-lg md:text-xl mt-6 leading-relaxed max-w-2xl"
-                >
-                  {slides[current].subtitle}
-                </motion.p>
+              <div className="flex flex-wrap gap-4 mt-10">
+                <button className="px-8 py-4 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition">
+                  {slideContent.btn1}
+                </button>
 
-                <motion.div
-                  initial={{ y: 60, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                  className="flex flex-wrap gap-4 mt-10"
-                >
-                  <button className="px-8 py-4 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition">
-                    {slides[current].btn1}
-                  </button>
-
-                  <button className="px-8 py-4 border border-white text-white rounded-lg hover:bg-white hover:text-black transition">
-                    {slides[current].btn2}
-                  </button>
-                </motion.div>
+                <button className="px-8 py-4 border border-white text-white rounded-lg hover:bg-white hover:text-black transition">
+                  {slideContent.btn2}
+                </button>
               </div>
             </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      </motion.div>
 
       {/* Indicators */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, index) => (
           <button
-            key={index}
-            onClick={() => setCurrent(index)}
+            key={_.id}
+            onClick={() => handleIndicatorClick(index)}
             className={`h-3 rounded-full transition-all duration-300 ${
               current === index
                 ? "w-10 bg-yellow-500"
                 : "w-3 bg-white/50"
             }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </section>
   );
-}
+};
+
+export default BannerSlider;
 
 
 

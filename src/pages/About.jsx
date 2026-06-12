@@ -7,8 +7,8 @@ import {
   FaBoxOpen,
 } from "react-icons/fa";
 
-import WhyChooseUs from "../components/WhyChooseUs";
-import about from "../assets/about3.png"
+// import WhyChooseUs from "../components/WhyChooseUs";
+import about from "../assets/about3.png";
 
 const About = () => {
   const services = [
@@ -33,7 +33,7 @@ const About = () => {
   // Autoplay Logic
   useEffect(() => {
     if (isHovered) return;
-    
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % services.length);
     }, 3500); // Autoplay Speed: 3500ms
@@ -43,12 +43,10 @@ const About = () => {
 
   return (
     <div className="bg-white overflow-x-hidden">
-
       {/* ================= HERO SECTION ================= */}
       <section className="mt-5 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-
             {/* Image */}
             <motion.div
               initial={{ opacity: 0, x: -80 }}
@@ -80,23 +78,24 @@ const About = () => {
               </h2>
 
               <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-                Shambhu Corporation is a trusted name in export, logistics,
-                Courier, and postal services. We help businesses expand
-                Globally by providing reliable transportation, customs support,
-                And seamless delivery solutions.
+                Shambhu Corporation is a trusted partner in global trade,
+                business development, and distribution network management.
+                Backed by over 20 years of experience in FMCG and IT products,
+                we specialize in cross-cultural business operations, national
+                and international sales, enterprise management, government
+                sales, and strategic market expansion.
               </p>
 
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-                With years of experience and a strong network, we ensure every
-                Shipment reaches its destination safely, efficiently, and on
-                Time.
+                Our expertise lies in formulating and implementing effective
+                business strategies that help establish and grow both new and
+                existing products in competitive markets.
               </p>
 
               <button className="mt-8 px-8 py-4 bg-[#ffac1c] text-white rounded-xl hover:bg-[#E0920F] transition">
                 Explore Services
               </button>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -108,12 +107,12 @@ const About = () => {
             {[
               {
                 icon: <FaGlobeAsia />,
-                value: "5+",
+                value: "Globaly",
                 title: "Countries Served",
               },
               {
                 icon: <FaShippingFast />,
-                value: "2K+",
+                value: "10K+",
                 title: "Shipments Delivered",
               },
               {
@@ -149,9 +148,7 @@ const About = () => {
                   {item.value}
                 </h3>
 
-                <p className="text-gray-600 mt-2">
-                  {item.title}
-                </p>
+                <p className="text-gray-600 mt-2">{item.title}</p>
               </motion.div>
             ))}
           </div>
@@ -161,7 +158,6 @@ const About = () => {
       {/* ================= CUSTOM FRAMER MOTION SLIDER SECTION ================= */}
       <section className="py-24">
         <div className="max-w-5xl mx-auto px-6">
-
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +174,7 @@ const About = () => {
           </motion.div>
 
           {/* Slider Container */}
-          <div 
+          <div
             className="relative min-h-[340px] flex flex-col justify-between"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -215,8 +211,8 @@ const About = () => {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index 
-                      ? "w-8 bg-[#03689e]" 
+                    currentSlide === index
+                      ? "w-8 bg-[#03689e]"
                       : "w-3 bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -224,12 +220,8 @@ const About = () => {
               ))}
             </div>
           </div>
-
         </div>
       </section>
-
-      <WhyChooseUs/>
-
     </div>
   );
 };

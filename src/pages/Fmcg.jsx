@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import care1 from "../assets/personal-care/11.png";
+import care2 from "../assets/personal-care/22.png";
+import care3 from "../assets/personal-care/33.png";
+import care4 from "../assets/personal-care/44.png";
+import care5 from "../assets/personal-care/55.png";
+import care6 from "../assets/personal-care/66.png";
+import care7 from "../assets/personal-care/7.png";
+import care8 from "../assets/personal-care/8.png";
 
-const categories = ["All", "Food", "Beverages", "Personal Care", "Household"];
+const categories = ["All", "Food", "Beverages","Harbals", "Personal Care", "Household"];
 
 const products = [
   {
@@ -51,6 +59,49 @@ const products = [
     name: "Premium Basmati Rice",
     category: "Food",
     image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500",
+  },
+  // care-product
+  {
+    id: 9,
+    name: "DENTI BUONGIORNO",
+    category: "Personal Care",
+    image: care1,
+  },
+  {
+    id: 10,
+    name: "DENTI BUONGIORNO",
+    category: "Personal Care",
+    image: care2,
+  },
+  {
+    id: 11,
+    name: "DENTI BUONGIORNO",
+    category: "Personal Care",
+    image: care3,
+  },
+  {
+    id: 12,
+    name: "Premium Basmati Rice",
+    category: "Personal Care",
+    image: care4,
+  },
+  {
+    id: 13,
+    name: "Céragenic 365+",
+    category: "Personal Care",
+    image: care5,
+  },
+   {
+    id: 14,
+    name: "Céragenic 365+",
+    category: "Personal Care",
+    image: care6,
+  },
+   {
+    id: 15,
+    name: "Céragenic 365+",
+    category: "Personal Care",
+    image: care7,
   },
 ];
 

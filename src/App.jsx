@@ -12,6 +12,8 @@ import GoToTop from "./components/GoToTop";
 import Import from "./pages/Import";
 import Trading from "./pages/Trading";
 
+import Social from "./components/Social";
+
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
 
       </Routes>
       <Footer />
+      <Social />
     </>
   );
 }

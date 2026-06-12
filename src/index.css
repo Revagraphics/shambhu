@@ -8,3 +8,17 @@
 * {
   font-family: "Inter", sans-serif !important;
 }
+
+.trade-route {
+  stroke-dasharray: 12;
+  animation: flow 2s linear infinite;
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
