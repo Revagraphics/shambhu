@@ -25,3 +25,17 @@ dist-ssr
 
 # env files
 .env
+
+.git
+.gitignore
+node_modules
+npm-debug.log
+.env.local
+.DS_Store
+.vscode
+.idea
+*.log
+dist
+build
+.next
+out
