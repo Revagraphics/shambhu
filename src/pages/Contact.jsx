@@ -276,7 +276,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
                   <div className="flex flex-col">
                     <label className="text-xs font-bold uppercase text-slate-500 mb-1.5 tracking-wide">
                       Email Address
@@ -291,7 +291,11 @@ export default function ContactPage() {
                       placeholder="name@company.com"
                     />
                   </div>
-                  <select
+                  <div className="flex flex-col">
+                    <label className="text-xs font-bold uppercase text-slate-500 mb-1.5 tracking-wide">
+                      Services
+                    </label>
+                    <select
                     name="department"
                     value={formData.department}
                     onChange={handleChange}
@@ -304,6 +308,7 @@ export default function ContactPage() {
                     <option>Customs Clearance & Regulatory</option>
                     <option>General Corporate Office</option>
                   </select>
+                  </div>
                 </div>
 
                 <div className="flex flex-col">

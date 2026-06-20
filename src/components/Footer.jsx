@@ -1,3 +1,5 @@
+
+
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import {FaFacebookF,FaInstagram,FaLinkedinIn,FaTwitter,} from "react-icons/fa";
@@ -13,6 +15,7 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
               <img
+
                 src={logo}
                 alt="Commerce Logo"
                 className="h-[100px] rounded-2xl w-[140px]"
@@ -48,13 +51,13 @@ const Footer = () => {
               >
                 <FaTwitter />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
                 aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -85,26 +88,17 @@ const Footer = () => {
             <h3 className="text-white font-semibold text-lg mb-5">Services</h3>
             <ul className="space-y-3 text-[15px]">
               <li>
-                <Link
-                  to="/exporting"
-                  className="hover:text-white transition"
-                >
+                <Link to="/exporting" className="hover:text-white transition">
                   Exporting
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/postal"
-                  className="hover:text-white transition"
-                >
+                <Link to="/postal" className="hover:text-white transition">
                   Postal Services
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/fmcg"
-                  className="hover:text-white transition"
-                >
+                <Link to="/fmcg" className="hover:text-white transition">
                   FMCG Products
                 </Link>
               </li>
@@ -145,20 +139,34 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-gray-400">Address</p>
-                <p>123 Commerce Street, Global Hub, GH 12345</p>
+                <p>
+                  B-001,GF,TOWER-B,AAKRITI SHANTI NIKETAN , 143-B, NOIDA,
+                  201304, Uttar Pradesh, India
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Divider */}
+
+        
+
+
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">
-              ©   2026 Shambhu Corporation. All rights reserved. Designed by
-
-              Reva Graphics.
+              © 2026 Shambhu Corporation. All rights reserved. Designed by
+              <a
+                className="text-[#f04393] font-semibold bg-gradient-to-br from-[#f04393] to-[#f9c449] bg-clip-text text-transparent"
+                href="https://www.revagraphics.com"
+                target="_blank"
+              >
+                {" "}
+                Reva Graphics
+              </a>
             </p>
+
             <div className="flex gap-6 mt-4 md:mt-0 text-sm">
               <a href="#" className="text-gray-500 hover:text-white transition">
                 Privacy Policy

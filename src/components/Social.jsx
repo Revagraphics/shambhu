@@ -10,50 +10,49 @@ const social = [
   {
     icon: <FaWhatsapp />,
     title: "WhatsApp",
+    link: "https://wa.me/919876543210",
     content: (
       <div className="text-center">
         <img
           src="/qr-whatsapp.png"
           alt="WhatsApp QR"
-          className="h-32 w-32  mx-auto"
-          loading="lazy"
+          className="h-32 w-32 mx-auto"
         />
         <p className="mt-2 text-xs">Scan to Chat</p>
       </div>
     ),
   },
+
   {
     icon: <FaPhoneAlt />,
     title: "Call Us",
+    link: "tel:+919876543210",
     content: (
       <div>
         <p className="font-semibold">+91 9876543210</p>
       </div>
     ),
   },
+
   {
     icon: <FaEnvelope />,
     title: "Email",
+    link: "mailto:shambhu220670@gmail.com",
     content: (
       <div>
-        <p className="break-all">
-          shambhu220670@gmail.com
-        </p>
+        <p className="break-all text-sm">shambhu220670@gmail.com</p>
       </div>
     ),
   },
+
   // {
   //   icon: <FaLinkedinIn />,
   //   title: "LinkedIn",
+  //   link: "https://www.linkedin.com/",
   //   content: (
-  //     <a
-  //       href="https://linkedin.com"
-  //       target="_blank"
-  //       rel="noreferrer"
-  //       className="text-blue-600"
-  //     >
-  //       Visit Profile
-  //     </a>
+  //     <div>
+  //       <p className="text-sm">Visit our LinkedIn Profile</p>
+  //     </div>
   //   ),
   // },
 ];
@@ -75,25 +74,28 @@ const Social = () => {
         <div
           key={index}
           className="relative"
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={handleMouseLeave}
+          // onMouseEnter={() => handleMouseEnter(index)}
+          // onMouseLeave={handleMouseLeave}
         >
-          <button
-            className="w-10 h-10 lg:h-14 lg:w-14 rounded-full bg-[#ffac1c] text-white flex items-center justify-center shadow-lg hover:bg-[#E0920F] transition-colors text-xl"
+          <a
+            href={item.link}
+            target={item.link.startsWith("http") ? "_blank" : "_self"}
+            rel="noopener noreferrer"
             aria-label={item.title}
+            className="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-[#ffac1c] text-white flex items-center justify-center shadow-lg hover:bg-[#E0920F] transition-all duration-300 text-lg lg:text-xl"
           >
             {item.icon}
-          </button>
+          </a>
 
-          {active === index && (
-            <div className="absolute right-16 bottom-0 bg-white rounded-xl shadow-2xl border p-4 min-w-[220px] animate-in fade-in duration-200">
-              <h4 className="font-semibold mb-2">
+          {/* {active === index && (
+            <div className="absolute right-16 bottom-0 bg-white rounded-xl shadow-2xl border border-gray-200 p-4 min-w-[220px] animate-fadeIn">
+              <h4 className="font-semibold mb-2 text-gray-800">
                 {item.title}
               </h4>
 
               {item.content}
             </div>
-          )}
+          )} */}
         </div>
       ))}
     </div>

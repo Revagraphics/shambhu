@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import toast from "react-hot-toast";
 
 import amazon from "../assets/amazon.jpg";
 import boat from "../assets/boat.png";
@@ -28,7 +29,10 @@ const detectPlatform = (url) => {
 
   try {
     let formattedUrl = url.trim();
-    if (!formattedUrl.startsWith("http://") && !formattedUrl.startsWith("https://")) {
+    if (
+      !formattedUrl.startsWith("http://") &&
+      !formattedUrl.startsWith("https://")
+    ) {
       formattedUrl = `https://${formattedUrl}`;
     }
 
@@ -38,9 +42,11 @@ const detectPlatform = (url) => {
     if (hostname.includes("flipkart")) return "Flipkart";
     if (hostname.includes("nykaa")) return "Nykaa";
     if (hostname.includes("myntra")) return "Myntra";
-    if (hostname.includes("boat-lifestyle") || hostname.includes("boat")) return "boAt";
+    if (hostname.includes("boat-lifestyle") || hostname.includes("boat"))
+      return "boAt";
     if (hostname.includes("jockey")) return "Jockey";
-    if (hostname.includes("themancompany") || hostname.includes("shaving")) return "Shaving Company";
+    if (hostname.includes("themancompany") || hostname.includes("shaving"))
+      return "Shaving Company";
     if (hostname.includes("ajio")) return "Ajio";
     if (hostname.includes("meesho")) return "Meesho";
     if (hostname.includes("blinkIt")) return "BlinkIt";
@@ -95,48 +101,99 @@ export default function PostalServices() {
     setShowModal(true);
   };
 
-  const handleCustomerSubmit = (e) => {
+  const handleCustomerSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!customerData.fullName || !customerData.phone || !customerData.address) {
+    const toastId = toast.loading("Sending inquiry...");
+
+    if (
+      !customerData.fullName ||
+      !customerData.phone ||
+      !customerData.address
+    ) {
       alert("Please fill all required fields (*)");
       return;
     }
 
-    console.log("Submission Data:", {
-      productUrl,
-      productDetails,
-      detectedPlatform,
-      customer: customerData,
-    });
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/sourabhnegi557@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            Full_Name: customerData.fullName,
+            Phone: customerData.phone,
+            Email: customerData.email,
+            Address: customerData.address,
+            City: customerData.city,
+            State: customerData.state,
+            Pin_Code: customerData.pinCode,
+            Country: customerData.country,
+            Customer_Message: customerData.message,
 
-    alert("Request submitted successfully! ✅");
-    setShowModal(false);
-    
-    // Reset form
-    setProductUrl("");
-    setProductDetails("");
-    setDetectedPlatform("");
-    setCustomerData({
-      fullName: "", phone: "", email: "", address: "", city: "", 
-      state: "", pinCode: "", country: "India", message: ""
-    });
+            Product_URL: productUrl,
+            Product_Details: productDetails,
+            Platform: detectedPlatform,
+
+            Source: "Product Request Form",
+          }),
+        },
+      );
+
+      const data = await response.json();
+      toast.dismiss(toastId);
+
+      if (data.success) {
+        // alert("Request submitted successfully! ✅");
+        toast.success("Inquiry submitted successfully!");
+
+        setShowModal(false);
+
+        setProductUrl("");
+        setProductDetails("");
+        setDetectedPlatform("");
+
+        setCustomerData({
+          fullName: "",
+          phone: "",
+          email: "",
+          address: "",
+          city: "",
+          state: "",
+          pinCode: "",
+          country: "India",
+          message: "",
+        });
+      } else {
+        toast.error("please submit again");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      toast.error("something went wrong");
+      // alert("Something went wrong. Please try again.");
+    }
   };
 
   const updateCustomerData = (field, value) => {
-    setCustomerData(prev => ({ ...prev, [field]: value }));
+    setCustomerData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const filteredData = activeCategory === "All"
-    ? portals
-    : portals.filter(item => item.category === activeCategory);
+  const filteredData =
+    activeCategory === "All"
+      ? portals
+      : portals.filter((item) => item.category === activeCategory);
 
   return (
     <section className="py-20 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mt-6 mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl font-bold text-gray-900">Postal <span className="text-[#E0920F]">Services</span></h2>
+          <h2 className="text-2xl font-bold text-gray-900">
+            Postal <span className="text-[#E0920F]">Services</span>
+          </h2>
           <p className="text-slate-500 mt-3 text-lg">
             Choose your preferred portal and submit product details for delivery
           </p>
@@ -150,9 +207,10 @@ export default function PostalServices() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                  ${activeCategory === category
-                    ? "bg-[#ffac1c] text-white shadow-md"
-                    : "bg-white text-slate-700 shadow hover:bg-slate-100"
+                  ${
+                    activeCategory === category
+                      ? "bg-[#ffac1c] text-white shadow-md"
+                      : "bg-white text-slate-700 shadow hover:bg-slate-100"
                   }`}
               >
                 {category}
@@ -179,14 +237,18 @@ export default function PostalServices() {
                 alt={portal.name}
                 className="h-14 w-auto object-contain mx-auto mb-4"
               />
-              <h3 className="text-center font-semibold text-gray-800">{portal.name}</h3>
+              <h3 className="text-center font-semibold text-gray-800">
+                {portal.name}
+              </h3>
             </motion.div>
           ))}
         </motion.div>
 
         {/* URL Submission Section */}
         <div className="mt-16 bg-white rounded-3xl p-8 shadow-lg">
-          <h3 className="text-2xl font-semibold mb-6">Submit <span className="text-[#E0920F]">Product</span>  URL</h3>
+          <h3 className="text-2xl font-semibold mb-6">
+            Submit <span className="text-[#E0920F]">Product</span> URL
+          </h3>
 
           <div className="space-y-6">
             <div className="lg:flex gap-3 ">
@@ -201,8 +263,6 @@ export default function PostalServices() {
                 className="flex-1 border border-gray-300 rounded-xl px-5 py-4 outline-none focus:border-[#03689e] focus:ring-2 focus:ring-[#03689e]/20 transition"
               />
 
-
-
               <button
                 onClick={handleCheckUrl}
                 disabled={isChecking || !productUrl.trim()}
@@ -212,19 +272,14 @@ export default function PostalServices() {
               </button>
             </div>
 
-
-
-
-
             {detectedPlatform && (
               <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
                 <p className="font-medium text-green-800">
-                  Detected Platform: <span className="text-green-600">{detectedPlatform}</span>
+                  Detected Platform:{" "}
+                  <span className="text-green-600">{detectedPlatform}</span>
                 </p>
               </div>
             )}
-
-
 
             <textarea
               rows="4"
@@ -238,7 +293,7 @@ export default function PostalServices() {
               onClick={handleSubmitRequest}
               className="w-full bg-[#ffac1c] hover:bg-[#E0920F] text-white py-4 rounded-xl font-semibold text-lg transition"
             >
-              Add Product To Cart
+              Submit
             </button>
           </div>
         </div>
@@ -260,14 +315,18 @@ export default function PostalServices() {
               className="bg-white w-full max-w-xl rounded-2xl p-6 md:p-8"
             >
               <h3 className="text-2xl font-bold mb-1">Customer Details</h3>
-              <p className="text-slate-500 mb-6">Please provide your shipping information</p>
+              <p className="text-slate-500 mb-6">
+                Please provide your shipping information
+              </p>
 
               <form onSubmit={handleCustomerSubmit} className="space-y-4">
                 <input
                   type="text"
                   placeholder="Full Name *"
                   value={customerData.fullName}
-                  onChange={(e) => updateCustomerData("fullName", e.target.value)}
+                  onChange={(e) =>
+                    updateCustomerData("fullName", e.target.value)
+                  }
                   className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                   required
                 />
@@ -277,7 +336,9 @@ export default function PostalServices() {
                     type="tel"
                     placeholder="Phone *"
                     value={customerData.phone}
-                    onChange={(e) => updateCustomerData("phone", e.target.value)}
+                    onChange={(e) =>
+                      updateCustomerData("phone", e.target.value)
+                    }
                     className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                     required
                   />
@@ -285,7 +346,9 @@ export default function PostalServices() {
                     type="email"
                     placeholder="Email"
                     value={customerData.email}
-                    onChange={(e) => updateCustomerData("email", e.target.value)}
+                    onChange={(e) =>
+                      updateCustomerData("email", e.target.value)
+                    }
                     className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                   />
                 </div>
@@ -294,7 +357,9 @@ export default function PostalServices() {
                   type="text"
                   placeholder="Full Address *"
                   value={customerData.address}
-                  onChange={(e) => updateCustomerData("address", e.target.value)}
+                  onChange={(e) =>
+                    updateCustomerData("address", e.target.value)
+                  }
                   className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                   required
                 />
@@ -311,7 +376,9 @@ export default function PostalServices() {
                     type="text"
                     placeholder="State"
                     value={customerData.state}
-                    onChange={(e) => updateCustomerData("state", e.target.value)}
+                    onChange={(e) =>
+                      updateCustomerData("state", e.target.value)
+                    }
                     className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                   />
                 </div>
@@ -321,13 +388,17 @@ export default function PostalServices() {
                     type="text"
                     placeholder="PIN Code"
                     value={customerData.pinCode}
-                    onChange={(e) => updateCustomerData("pinCode", e.target.value)}
+                    onChange={(e) =>
+                      updateCustomerData("pinCode", e.target.value)
+                    }
                     className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                   />
                   <input
                     type="text"
                     value={customerData.country}
-                    onChange={(e) => updateCustomerData("country", e.target.value)}
+                    onChange={(e) =>
+                      updateCustomerData("country", e.target.value)
+                    }
                     className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e]"
                   />
                 </div>
@@ -336,7 +407,9 @@ export default function PostalServices() {
                   rows="3"
                   placeholder="Additional Message (Optional)"
                   value={customerData.message}
-                  onChange={(e) => updateCustomerData("message", e.target.value)}
+                  onChange={(e) =>
+                    updateCustomerData("message", e.target.value)
+                  }
                   className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#03689e] resize-y"
                 />
 

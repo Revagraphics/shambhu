@@ -169,7 +169,7 @@ const About = () => {
             </span>
 
             <h2 className="text-2xl md:text-5xl  font-semibold mt-5">
-              What We Do Best
+              Why Choose
             </h2>
           </motion.div>
 

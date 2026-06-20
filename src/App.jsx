@@ -11,6 +11,7 @@ import Fmcg from "./pages/Fmcg";
 import GoToTop from "./components/GoToTop";
 import Import from "./pages/Import";
 import Trading from "./pages/Trading";
+import NotFound from "./pages/NotFound";
 
 import Social from "./components/Social";
 
@@ -22,6 +23,7 @@ function App() {
 
       <Navbar />
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
