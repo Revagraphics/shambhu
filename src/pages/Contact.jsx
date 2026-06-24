@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import {
-  FaEnvelope, // Replaces Mail
-  FaPhoneAlt, // Replaces Phone
-  FaMapMarkerAlt, // Replaces MapPin
-  FaGlobe, // Replaces Globe
-  FaRegClock, // Replaces Clock (Regular outline)
-  FaCheckCircle, // Replaces CheckCircle
-  FaArrowRight, // Replaces ArrowRight
-  FaBoxes, // Replaces MailBulk/FMCG asset visuals
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaGlobe,
+  FaRegClock, 
+  FaCheckCircle, 
+  FaArrowRight, 
+  FaBoxes, 
 } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -204,16 +204,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Bottom Visual Element */}
-            {/* <div className="mt-12 pt-8 border-t border-zinc-800">
-              <div className="flex items-center gap-3 bg-blue-950/40 p-4 rounded-2xl border border-zinc-100">
-                <FaRegClock className="w-5 h-5 text-[#3b82f6] shrink-0" />
-                <span className="text-xs text-slate-300 leading-relaxed">
-                  <strong>Maritime Notice:</strong> Global asset channels and
-                  vessel dispatch desks remain operational 24/7.
-                </span>
-              </div>
-            </div> */}
+            
           </motion.div>
 
           {/* Right Column: Interactive Secure Form (7 Columns) */}
@@ -296,18 +287,18 @@ export default function ContactPage() {
                       Services
                     </label>
                     <select
-                    name="department"
-                    value={formData.department}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-[#1a56db] focus:ring-2 focus:ring-blue-100 transition cursor-pointer"
-                  >
-                    <option>Import</option>
-                    <option>FMCG Export Division</option>
-                    <option>Trading Related</option>
-                    <option>International Postal Networks</option>
-                    <option>Customs Clearance & Regulatory</option>
-                    <option>General Corporate Office</option>
-                  </select>
+                      name="department"
+                      value={formData.department}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-[#1a56db] focus:ring-2 focus:ring-blue-100 transition cursor-pointer"
+                    >
+                      <option>Import</option>
+                      <option>FMCG Export Division</option>
+                      <option>Trading Related</option>
+                      <option>International Postal Networks</option>
+                      <option>Customs Clearance & Regulatory</option>
+                      <option>General Corporate Office</option>
+                    </select>
                   </div>
                 </div>
 

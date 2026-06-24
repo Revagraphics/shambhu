@@ -8,9 +8,9 @@ const Trading = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative mt-8 py-20 bg-slate-900">
+      <section className="relative py-20 px-10 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-[#ffac1c] rounded-full text-sm font-semibold">
+          <span className="inline-block px-4 py-2 mt-8 bg-blue-100 text-[#ffac1c] rounded-full text-sm font-semibold">
             Global Trading Solutions
           </span>
 

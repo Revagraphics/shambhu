@@ -136,6 +136,9 @@ const products = [
   },
 ];
 
+
+
+
 export default function FmcgProducts() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
@@ -152,11 +155,11 @@ export default function FmcgProducts() {
   return (
     <section className="min-h-screen bg-slate-50 py-16">
       <div className="max-w-7xl mt-[4rem] mx-auto px-4">
-        {/* Heading */}
         <div className="text-center mb-10">
           <h1 className="text-2xl md:text-5xl font-bold text-slate-800">
             FMCG <span className="text-[#E0920F]">Products</span>
           </h1>
+
 
           <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
             Browse our extensive range of fast-moving consumer goods including
