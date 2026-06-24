@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import {
+<<<<<<< HEAD
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
@@ -9,6 +10,15 @@ import {
   FaRegClock, 
   FaCheckCircle, 
   FaArrowRight, 
+=======
+  FaEnvelope, 
+  FaPhoneAlt, 
+  FaMapMarkerAlt, 
+  FaGlobe, 
+  FaRegClock, 
+  FaCheckCircle, 
+  FaArrowRight,
+>>>>>>> 2599bd85fa2cec76b3d6a021555cc87f3e154d14
   FaBoxes, 
 } from "react-icons/fa";
 
@@ -204,7 +214,11 @@ export default function ContactPage() {
               </div>
             </div>
 
+<<<<<<< HEAD
             
+=======
+           
+>>>>>>> 2599bd85fa2cec76b3d6a021555cc87f3e154d14
           </motion.div>
 
           {/* Right Column: Interactive Secure Form (7 Columns) */}
