@@ -12,7 +12,6 @@ import GoToTop from "./components/GoToTop";
 import Import from "./pages/Import";
 import Trading from "./pages/Trading";
 import NotFound from "./pages/NotFound";
-
 import Social from "./components/Social";
 
 
@@ -20,11 +19,9 @@ function App() {
   return (
     <>
       <GoToTop/>
-
       <Navbar />
       <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/exporting" element={<Exporting />} />
@@ -33,9 +30,8 @@ function App() {
         <Route path="/import" element={<Import/>} />
         <Route path="/trading" element={<Trading/>} />
 
-
-
-
+        {/* not found route  */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <Social />

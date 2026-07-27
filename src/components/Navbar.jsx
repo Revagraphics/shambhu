@@ -28,8 +28,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-10">
             <Link
               to="/"
-              className={`font-medium transition ${isActive("/") ? "text-[#ffac1c]" : "text-gray-700 hover:text-[#E0920F]"}`}
-            >
+              className={`font-medium transition ${isActive("/") ? "text-[#ffac1c]" : "text-gray-700 hover:text-[#E0920F]"}`}>
               Home
             </Link>
 
