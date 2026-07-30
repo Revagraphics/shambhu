@@ -187,16 +187,62 @@ export default function PostalServices() {
       : portals.filter((item) => item.category === activeCategory);
 
   return (
-    <section className="py-20 bg-slate-50 min-h-screen">
+    <section className=" bg-slate-50 min-h-screen">
+      {/* banner */}
+      <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
+        <svg
+          className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <motion.path
+            d="M -50 640 Q 320 540 650 600 T 1250 560"
+            fill="none"
+            stroke="#D98E2C"
+            strokeWidth="3.5"
+            strokeDasharray="2 10"
+            strokeLinecap="round"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -240 }}
+            transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+          />
+        </svg>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-[#D98E2C] text-xs font-semibold tracking-[0.15em] uppercase">
+              Our Postal Service
+            </span>
+
+            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+              Connecting Businesses Across{" "}
+              <span className="text-[#D98E2C]">International Markets</span>
+            </h1>
+
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
+              Shambhu Corporation facilitates seamless global trade by bridging
+              manufacturers, suppliers, distributors, and buyers through trusted
+              business networks and strategic market expertise.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       <div className="max-w-7xl mt-6 mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
             Postal <span className="text-[#E0920F]">Services</span>
           </h2>
-          <p className="text-slate-500 mt-3 text-lg">
+          {/* <p className="text-slate-500 mt-3 text-lg">
             Choose your preferred portal and submit product details for delivery
-          </p>
+          </p> */}
         </div>
 
         {/* Categories */}

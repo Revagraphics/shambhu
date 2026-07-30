@@ -6,6 +6,7 @@ import slider2 from "../assets/slider-2.jpg";
 import slider3 from "../assets/slider-1.jpg";
 
 const slides = [
+
   {
     id: 1,
     image: slider1,
@@ -14,6 +15,7 @@ const slides = [
     btn1: "Our Services",
     btn2: "Get Quote",
   },
+
   {
     id: 2,
     image: slider2,
@@ -37,7 +39,6 @@ const AUTO_DELAY = 6000;
 const BannerSlider = () => {
   const [current, setCurrent] = useState(0);
 
-  // Auto layout cycle
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -72,11 +73,11 @@ const BannerSlider = () => {
               loading="eager"
             />
             {/* Dark Overlay tint */}
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-black/20" />
 
             {/* Typography Content Placement */}
             <div className="absolute inset-0 flex items-center">
-              <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+              <div className="max-w-[80vw] mx-auto px-6 lg:px-10 w-full">
                 <div className="max-w-3xl">
                   <span className="inline-block mb-5 px-4 py-2 rounded-full bg-yellow-500 text-black font-semibold text-sm">
                     SHAMBHU CORPORATION
@@ -105,26 +106,7 @@ const BannerSlider = () => {
         ))}
       </motion.div>
 
-      {/* Navigation Buttons (Left/Right arrows) */}
-      <button
-        onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex h-12 w-12 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition"
-        aria-label="Previous Slide"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
       
-      <button
-        onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex h-12 w-12 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition"
-        aria-label="Next Slide"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
 
       {/* Progress Indicators */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">

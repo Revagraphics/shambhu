@@ -76,10 +76,10 @@ const FeatureCard = memo(({ item, isHovering }) => (
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.5 }}
-    className={`absolute ${item.position} bg-white rounded-2xl shadow-md p-5 w-80 cursor-pointer hover:shadow-lg transition-shadow`}
+    className={`absolute ${item.position} bg-white rounded-2xl shadow-md p-5 w-80 cursor-pointer hover:shadow-lg hover:bg-[#FDF3E4] transition-shadow`}
   >
     <div className="flex gap-4 items-start">
-      <div className="w-16 h-16 rounded-xl bg-[#03689e]/10 flex items-center justify-center text-3xl flex-shrink-0">
+      <div className="w-16 h-16 rounded-xl bg-[#03689e]/10 hover:bg-orange flex items-center justify-center text-3xl flex-shrink-0">
         {item.icon}
       </div>
 
@@ -98,7 +98,7 @@ FeatureCard.displayName = "FeatureCard";
 
 // Memoized Solution Card Component
 const SolutionCard = memo(({ icon, title, desc }) => (
-  <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:shadow-lg transition-shadow">
+  <div className="bg-white rounded-2xl hover:bg-[#FDF3E4] shadow-md p-5 flex gap-5 hover:shadow-lg transition-shadow">
     <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">
       {icon}
     </div>
@@ -135,7 +135,7 @@ const Home = () => {
               {/* Floating Cards */}
               <div className="hidden lg:block absolute top-10 left-0 bg-white shadow-lg rounded-xl p-4">
                 <p className="text-sm text-gray-500">Projects</p>
-                <h4 className="font-bold text-xl">175,950</h4>
+                <h4 className="font-bold text-xl">175,95</h4>
               </div>
 
               <div className="hidden lg:block absolute bottom-10 right-0 bg-white shadow-lg rounded-xl p-4">
@@ -269,7 +269,7 @@ const Home = () => {
 
               {/* Feature Cards */}
               <div className="space-y-5">
-                <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:shadow-lg transition-shadow">
+                <div className="bg-white rounded-2xl shadow-md hover:bg-[#FDF3E4] p-5 flex gap-5 hover:shadow-lg transition-shadow">
                   <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">
                     <FaGlobe />
                   </div>
@@ -285,7 +285,7 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:shadow-lg transition-shadow">
+                <div className="bg-white rounded-2xl shadow-md p-5 flex hover:bg-[#FDF3E4] gap-5 hover:shadow-lg transition-shadow">
                   <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">
                     <FaSuperpowers />
                   </div>
@@ -301,7 +301,7 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:shadow-lg transition-shadow">
+                <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:bg-[#FDF3E4] hover:shadow-lg transition-shadow">
                   <div className="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">
                     <FaTruck/>
                   </div>
@@ -317,7 +317,7 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:shadow-lg transition-shadow">
+                <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:bg-[#FDF3E4] hover:shadow-lg transition-shadow">
                   <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">
                     <FaBuilding />
                   </div>
