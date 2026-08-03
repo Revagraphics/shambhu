@@ -1,15 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Line,
-  Marker,
-} from "react-simple-maps";
+import {ComposableMap,Geographies, Geography, Line, Marker, } from "react-simple-maps";
 
-const geoUrl =
-  "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 const routes = [
   { name: "UAE", coordinates: [55.2708, 25.2048], label: "Dubai Hub" },
@@ -94,7 +87,9 @@ export default function Map() {
                 strokeWidth={hovered === index ? 1.6 : 1}
                 strokeLinecap="round"
                 strokeDasharray="6 6"
-                strokeOpacity={hovered === null || hovered === index ? 0.9 : 0.25}
+                strokeOpacity={
+                  hovered === null || hovered === index ? 0.9 : 0.25
+                }
                 className="route-line"
               />
             ))}
@@ -134,6 +129,7 @@ export default function Map() {
                   onMouseEnter={() => setHovered(index)}
                   onMouseLeave={() => setHovered(null)}
                   style={{ cursor: "pointer" }}
+                  
                 >
                   <circle
                     r={hovered === index ? 8 : 6}

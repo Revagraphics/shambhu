@@ -91,11 +91,11 @@ const BannerSlider = () => {
                     {slide.subtitle}
                   </p>
 
-                  <div className="flex flex-wrap gap-4 mt-10">
-                    <button className="px-8 py-4 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition">
+                  <div className="flex  gap-4 mt-10">
+                    <button className="px-2 lg:px-8 py-4 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition">
                       {slide.btn1}
                     </button>
-                    <button className="px-8 py-4 border border-white text-white rounded-lg hover:bg-white hover:text-black transition">
+                    <button className="px-2 lg:px-8 py-4 border border-white text-white rounded-lg hover:bg-white hover:text-black transition">
                       {slide.btn2}
                     </button>
                   </div>

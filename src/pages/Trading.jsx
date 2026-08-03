@@ -77,7 +77,7 @@ const Trading = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-3 gap-6 max-w-xl mx-auto mt-16 border-t border-white/10 pt-8"
+            className="grid grid-cols-3 gap-6 max-w-xl mx-auto mt-8 border-t border-white/10 pt-8"
           >
             {stats.map((s) => (
               <div key={s.label}>

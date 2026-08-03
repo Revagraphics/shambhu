@@ -8,6 +8,8 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
+import { PortalDirectory, ProductRequestForm} from "../components/PostalComponents";
+
 const importProcess = [
   {
     id: 1,
@@ -118,8 +120,8 @@ const Import = () => {
               reliable delivery of international goods to India — end to end.
             </p>
 
-            <div className="flex gap-4 mt-10 flex-wrap">
-              <button className="group inline-flex items-center gap-2 px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
+            <div className="flex gap-4 mt-10 sm:flex">
+              <button className="group inline-flex items-center gap-2 px-2 lg:px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
                 Start Importing
                 <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
               </button>
@@ -134,7 +136,7 @@ const Import = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 border-t border-white/10 pt-10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 lg:mt-16 border-t border-white/10 pt-10"
           >
             {stats.map((s, i) => (
               <motion.div key={s.label} custom={i} variants={fadeUp}>
@@ -237,6 +239,11 @@ const Import = () => {
           </div>
         </div>
       </section>
+
+      <>
+        <PortalDirectory />
+        <ProductRequestForm />
+      </>
 
       {/* ================= WHY CHOOSE US ================= */}
       <section className="py-24 bg-slate-50">

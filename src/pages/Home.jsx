@@ -10,10 +10,18 @@ import logo4 from "../assets/logo4.svg";
 import logo5 from "../assets/logo5.svg";
 import logo6 from "../assets/logo6.svg";
 import planeImg from "../assets/com-3.png";
-import BannerSlider from "../components/BannerSlider"
-import map from "../assets/map.jpg"
+import BannerSlider from "../components/BannerSlider";
+import map from "../assets/map.jpg";
 
-import {FaGlobe, FaStickyNote  , FaTruck , FaPassport  , FaBuilding  , FaMeetup , FaSuperpowers  } from "react-icons/fa";
+import {
+  FaGlobe,
+  FaStickyNote,
+  FaTruck,
+  FaPassport,
+  FaBuilding,
+  FaMeetup,
+  FaSuperpowers,
+} from "react-icons/fa";
 
 const logos = [
   { id: 1, logo: logo1 },
@@ -26,45 +34,45 @@ const logos = [
 
 const features = [
   {
-    id:1,
+    id: 1,
     title: "Global FMCG Export",
     desc: "Premium consumer goods delivered worldwide.",
     icon: <FaGlobe />,
     position: "top-[10%] left-[5%]",
   },
   {
-    id:2,
+    id: 2,
     title: "Trade Compliance",
     desc: "Navigate international regulations seamlessly.",
-    icon: <FaStickyNote   />,
+    icon: <FaStickyNote />,
     position: "top-[10%] right-[5%]",
   },
   {
-    id:3,
+    id: 3,
     title: "Secure Logistics",
     desc: "Dependable supply chain management.",
-    icon: <FaTruck  />,
+    icon: <FaTruck />,
     position: "top-[40%] left-0",
   },
   {
-    id:4,
+    id: 4,
     title: "Postal Network",
     desc: "Connected communities through reliable delivery.",
     icon: <FaPassport />,
     position: "top-[40%] right-0",
   },
   {
-    id:5,
+    id: 5,
     title: "Infrastructure",
     desc: "Robust systems for efficient operations.",
-    icon: <FaBuilding  />,
+    icon: <FaBuilding />,
     position: "bottom-[8%] left-[5%]",
   },
   {
-    id:6,
+    id: 6,
     title: "Business Connectivity",
     desc: "Keeping enterprises and communities linked.",
-    icon: <FaMeetup  />,
+    icon: <FaMeetup />,
     position: "bottom-[8%] right-[5%]",
   },
 ];
@@ -84,9 +92,7 @@ const FeatureCard = memo(({ item, isHovering }) => (
       </div>
 
       <div>
-        <h4 className="font-semibold text-xl text-slate-900">
-          {item.title}
-        </h4>
+        <h4 className="font-semibold text-xl text-slate-900">{item.title}</h4>
 
         <p className="text-slate-500 mt-2 text-sm">{item.desc}</p>
       </div>
@@ -114,11 +120,10 @@ SolutionCard.displayName = "SolutionCard";
 
 const Home = () => {
   const duplicatedLogos = [...logos, ...logos];
-  
+
   return (
     <div className="bg-white overflow-x-hidden">
-
-      <BannerSlider/>
+      <BannerSlider />
 
       <section className="min-h-screen bg-[#f8f9fc] flex items-center">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12 py-20">
@@ -146,7 +151,7 @@ const Home = () => {
 
             <div className="lg:order-1">
               <span className="inline-flex items-center px-4 py-2 rounded-full border border-orange-300 text-orange-500 text-sm mb-6">
-                < FaGlobe/> Trade Solutions
+                <FaGlobe /> Trade Solutions
               </span>
 
               <h1 className="text-2xl lg:text-7xl font-bold leading-tight text-gray-900">
@@ -162,7 +167,7 @@ const Home = () => {
                 goods globally.
               </p>
 
-              <div className="flex flex-wrap gap-4 mt-10">
+              <div className="flex  gap-4 mt-10">
                 <button className="px-8 py-4 bg-[#ffac1c] text-white rounded-xl font-medium hover:bg-[#E0920F] transition">
                   Get Started
                 </button>
@@ -209,7 +214,7 @@ const Home = () => {
         </div>
       </section>
 
-   {/* logo marquee */}
+      {/* logo marquee */}
       <section className="py-12 bg-[#f8f9fc] overflow-hidden w-full">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
           <motion.div
@@ -303,7 +308,7 @@ const Home = () => {
 
                 <div className="bg-white rounded-2xl shadow-md p-5 flex gap-5 hover:bg-[#FDF3E4] hover:shadow-lg transition-shadow">
                   <div className="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center text-3xl flex-shrink-0">
-                    <FaTruck/>
+                    <FaTruck />
                   </div>
 
                   <div>
@@ -398,6 +403,8 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="py-24 bg-white"></section>
+
       <section className="py-24 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           {/* Heading */}
@@ -438,7 +445,12 @@ const Home = () => {
 
           {/* Mobile Layout */}
           <div className="lg:hidden">
-            <img src={planeImg} alt="Trade Solutions" className="mx-auto mb-10 w-full" loading="lazy" />
+            <img
+              src={planeImg}
+              alt="Trade Solutions"
+              className="mx-auto mb-10 w-full"
+              loading="lazy"
+            />
 
             <div className="grid gap-5">
               {features.map((item) => (
@@ -463,7 +475,7 @@ const Home = () => {
         </div>
       </section>
 
-       <section className="min-h-screen bg-[#f8f9fc] flex items-center">
+      <section className="min-h-screen bg-[#f8f9fc] flex items-center">
         <div className="max-w-[90vw] mx-auto px-6 lg:px-12 py-20">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-5 items-center">
             {/* Left image */}
@@ -482,16 +494,20 @@ const Home = () => {
               </span>
 
               <h1 className="text-2xl lg:text-7xl font-bold leading-tight text-gray-900">
-                Delivering 
+                Delivering
                 <br />
                 Quality Beyond <span className="text-[#E0920F]">Borders</span>
               </h1>
 
               <p className="mt-6 text-lg text-gray-600 max-w-xl">
-                At Shambhu Corporation, we specialize in exporting premium FMCG products to global destinations. From sourcing and documentation to logistics and delivery, our end-to-end trade solutions ensure reliability, efficiency, and long-term value for our international partners.
+                At Shambhu Corporation, we specialize in exporting premium FMCG
+                products to global destinations. From sourcing and documentation
+                to logistics and delivery, our end-to-end trade solutions ensure
+                reliability, efficiency, and long-term value for our
+                international partners.
               </p>
 
-              <div className="flex flex-wrap gap-4 mt-10">
+              <div className="flex  gap-4 mt-10">
                 <button className="px-8 py-4 bg-[#ffac1c] text-white rounded-xl font-medium hover:bg-[#E0920F] transition">
                   Get Started
                 </button>

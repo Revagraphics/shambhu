@@ -44,13 +44,13 @@ const Footer = () => {
               >
                 <FaInstagram />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
                 aria-label="Twitter"
               >
                 <FaTwitter />
-              </a>
+              </a> */}
               {/* <a
                 href="#"
                 className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"

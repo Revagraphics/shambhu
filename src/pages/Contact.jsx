@@ -6,10 +6,10 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaGlobe,
-  FaRegClock, 
-  FaCheckCircle, 
-  FaArrowRight, 
-  FaBoxes, 
+  FaRegClock,
+  FaCheckCircle,
+  FaArrowRight,
+  FaBoxes,
 } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -117,6 +117,52 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen  bg-[#f8f9fc] text-slate-800 font-sans overflow-x-hidden">
+      {/* banner */}
+      <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
+        <svg
+          className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <motion.path
+            d="M -50 640 Q 320 540 650 600 T 1250 560"
+            fill="none"
+            stroke="#D98E2C"
+            strokeWidth="3.5"
+            strokeDasharray="2 10"
+            strokeLinecap="round"
+            initial={{ strokeDashoffset: 0 }}
+            animate={{ strokeDashoffset: -240 }}
+            transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+          />
+        </svg>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-[#D98E2C] text-xs font-semibold tracking-[0.15em] uppercase">
+              Contact Us
+            </span>
+
+            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+              Connect With Shambhu{" "}
+              <span className="text-[#D98E2C]">Corporation</span>
+            </h1>
+
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
+              Whether you need bulk FMCG export clearance or international
+              postal network routing, our global logistics desks are ready to
+              assist.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ==========================================================================
          SECTION 1: HERO, CORE CONTACT INFO, & INTERACTIVE FORM
          ========================================================================== */}
@@ -133,10 +179,7 @@ export default function ContactPage() {
           <h1 className="text-2xl lg:text-5xl font-extrabold text-zinc-800 mt-3 tracking-tight">
             Connect With Shambhu Corporation
           </h1>
-          <p className="text-gray-600 mt-4 text-lg">
-            Whether you need bulk FMCG export clearance or international postal
-            network routing, our global logistics desks are ready to assist.
-          </p>
+          
         </motion.div>
 
         {/* Split Grid Component */}
@@ -146,7 +189,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5 bg-[#ffac1c] rounded-3xl p-8 lg:p-10 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group"
+            className="lg:col-span-5 bg-[#0B1E33] rounded-3xl p-8 lg:p-10 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group"
           >
             {/* Decorative background overlay pattern */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.3),transparent_60%)] pointer-events-none" />
@@ -183,7 +226,7 @@ export default function ContactPage() {
                       Global Trade Hotline
                     </h4>
                     <p className="text-sm text-slate-100 mt-0.5">
-                      +91 98XXX XXXXX
+                      +91 99-1116-1669
                     </p>
                   </div>
                 </div>
@@ -203,8 +246,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-
-            
           </motion.div>
 
           {/* Right Column: Interactive Secure Form (7 Columns) */}
@@ -324,7 +365,7 @@ export default function ContactPage() {
                   type="submit"
                   className="w-full bg-[#ffac1c] text-white py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md hover:bg-[#E0920F] transition cursor-pointer disabled:opacity-70"
                 >
-                  {loading ? "Sending Inquiry..." : "Transmit Manifest Data"}
+                  {loading ? "Sending Inquiry..." : "Submit Data"}
 
                   <FaArrowRight className="w-4 h-4" />
                 </motion.button>
@@ -334,10 +375,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ==========================================================================
-         SECTION 2: SOMETHING UNIQUE - GLOBAL LOGISTICS HUB STATUS BOARDS
-         ========================================================================== */}
-      <section className="bg-white border-t border-slate-100 py-16 lg:py-20">
+
+      {/*Hub Station  */}
+      {/* <section className="bg-white border-t border-slate-100 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-12">
             <h2 className="text-2xl lg:text-3xl font-bold text-[#ffac1c]">
@@ -402,7 +442,9 @@ export default function ContactPage() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
+
+
     </div>
   );
 }

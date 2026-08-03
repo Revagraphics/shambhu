@@ -9,6 +9,7 @@ import {
 
 import WhyChooseUs from "../components/WhyChooseUs";
 import about from "../assets/com-4.png";
+import { PortalDirectory, ProductRequestForm} from "../components/PostalComponents";
 
 const exportProcess = [
   {
@@ -87,8 +88,7 @@ const Exporting = () => {
                 Outbound Trade Desk
               </span>
 
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
-                Exporting Excellence Across{" "}
+              <h1 className="mt-6 text-4xl sm:text-3xl lg:text-6xl font-bold leading-[1.1] text-white"> Exporting Excellence Across{" "}
                 <span className="text-[#D98E2C]">Borders</span>
               </h1>
 
@@ -104,8 +104,8 @@ const Exporting = () => {
                 reaches its destination safely, efficiently, and on time.
               </p>
 
-              <div className="flex gap-4 mt-10 flex-wrap">
-                <button className="group inline-flex items-center gap-2 px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
+              <div className="flex gap-4 mt-10">
+                <button className="group inline-flex items-center gap-2 px-2 lg:px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
                   Explore Services
                   <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                 </button>
@@ -154,6 +154,13 @@ const Exporting = () => {
           </div>
         </div>
       </section>
+
+
+    <>
+      <PortalDirectory/>
+      <ProductRequestForm/>
+    </>
+
 
       {/* ================= REGIONS SERVED ================= */}
       <section className="py-24 bg-slate-50">
