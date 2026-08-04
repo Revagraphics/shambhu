@@ -12,6 +12,8 @@ import {
   FaBoxes,
 } from "react-icons/fa";
 
+const CONTACT_ENDPOINT = "/contact.php";
+
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,33 +38,44 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true);
+
     const toastId = toast.loading("Sending inquiry...");
 
     try {
-      const response = await fetch(
-        "https://formsubmit.co/ajax/sourabhnegi557@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            Name: formData.name,
-            Phone: formData.phone,
-            Email: formData.email,
-            Department: formData.department,
-            Message: formData.message,
-            Source: "Shambhu Corporation Website",
-          }),
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-      );
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          department: formData.department,
+          message: formData.message,
+          source: "Shambhu Corporation Website",
+        }),
+      });
 
-      const result = await response.json();
+      const text = await response.text();
+      let result = {};
+
+      try {
+        result = text ? JSON.parse(text) : {};
+      } catch {
+        result = {
+          success: false,
+          message: text || "Unexpected server response.",
+        };
+      }
+
       toast.dismiss(toastId);
 
-      if (response.ok) {
-        toast.success("Inquiry submitted successfully!");
+      if (response.ok && result.success) {
+        toast.success(result.message || "Inquiry submitted successfully!");
+
         setFormSubmitted(true);
 
         setFormData({
@@ -77,16 +90,17 @@ export default function ContactPage() {
           setFormSubmitted(false);
         }, 5000);
       } else {
-        console.error(result);
-        toast.error("Unable to send inquiry. Please try again.");
+        toast.error(result.message || "Unable to send inquiry. Please try again.");
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
 
-      toast.error("something went wrong");
+      toast.dismiss(toastId);
+
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   // Animation variants for consistency
@@ -179,7 +193,6 @@ export default function ContactPage() {
           <h1 className="text-2xl lg:text-5xl font-extrabold text-zinc-800 mt-3 tracking-tight">
             Connect With Shambhu Corporation
           </h1>
-          
         </motion.div>
 
         {/* Split Grid Component */}
@@ -374,77 +387,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-
-
-      {/*Hub Station  */}
-      {/* <section className="bg-white border-t border-slate-100 py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#ffac1c]">
-              Global Operational Hub Status
-            </h2>
-            <p className="text-gray-500 text-sm mt-1">
-              Live structural updates across Shambhu Corporation transaction
-              zones.
-            </p>
-          </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {globalHubs.map((hub, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 12px 20px -5px rgba(0,0,0,0.05)",
-                }}
-                className="border border-slate-200/80 rounded-2xl p-6 bg-[#f8f9fc]/50 flex flex-col justify-between transition-all duration-300"
-              >
-                <div>
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="font-bold text-lg text-slate-900 flex items-center gap-1.5">
-                      <FaGlobe className="w-4 h-4 text-[#ffac1c]" /> {hub.city}
-                    </span>
-                    <span
-                      className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
-                        hub.status === "Open Now"
-                          ? "bg-emerald-100 text-emerald-800"
-                          : "bg-slate-200 text-slate-600"
-                      }`}
-                    >
-                      {hub.status}
-                    </span>
-                  </div>
-
-                  <p className="text-sm font-semibold text-[#ffac1c]">
-                    {hub.role}
-                  </p>
-
-                  <div className="flex items-center gap-1.5 text-gray-500 text-xs mt-3">
-                    <FaRegClock className="w-3.5 h-3.5" />{" "}
-                    <span>Local Shift Hours: {hub.hours}</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-600">
-                  <span>Direct Line:</span>
-                  <span className="text-slate-900 font-mono font-bold">
-                    {hub.phone}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section> */}
-
-
     </div>
   );
 }

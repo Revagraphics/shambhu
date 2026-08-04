@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-route-dom";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <section className="min-h-screen mt-[2rem] bg-gray-100 flex items-center justify-center px-4 py-8">

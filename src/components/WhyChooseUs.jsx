@@ -61,7 +61,6 @@ export default function WhyChooseUs() {
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-5 text-slate-900">
             Trusted Logistics & Export
-            <br />
             Partner For Your Business
           </h2>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   FaGlobeAsia,
   FaShippingFast,
@@ -55,6 +56,8 @@ const services = [
 ];
 
 const About = () => {
+
+  const navigate = useNavigate();
   return (
     <div className="bg-white overflow-x-hidden">
       {/* banner */}
@@ -168,7 +171,7 @@ const About = () => {
                 existing products in competitive markets.
               </p>
 
-              <button className="group mt-8 inline-flex items-center gap-2 px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
+              <button onClick={() => navigate("/exporting")} className="group mt-8 inline-flex items-center gap-2 px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
                 Explore Services
                 <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
               </button>
@@ -211,9 +214,11 @@ const About = () => {
             <span className="text-[#D98E2C] font-semibold uppercase tracking-wider text-sm">
               What Drives Us
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mt-3">
-              Principles Behind Every Shipment
-            </h2>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-6 text-slate-900 leading-[1.15]">
+                 Principles Behind Every  {" "}
+                <span className="text-[#D98E2C]">Shipment</span>
+              </h1>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -291,7 +296,7 @@ const About = () => {
             Talk to our team about export, import, trading, or postal solutions
             tailored to you
           </p>
-          <button className="inline-flex items-center gap-2 px-10 py-4 bg-[#D98E2C] text-white rounded-xl font-bold hover:bg-[#B5721B] transition text-lg">
+          <button onClick={() => navigate("/contact")} className="inline-flex items-center gap-2 px-10 py-4 bg-[#D98E2C] text-white rounded-xl font-bold hover:bg-[#B5721B] transition text-lg">
             Contact Our Team
             <FaArrowRight />
           </button>

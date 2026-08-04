@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import {useNavigate} from "react-router-dom";   
 import {
   FaHandshake,
   FaChartLine,
@@ -24,6 +25,7 @@ const sectors = [
 ];
 
 const Trading = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white overflow-x-hidden">
       {/* ================= HERO ================= */}
@@ -300,7 +302,7 @@ const Trading = () => {
             Talk to our trading desk about market entry, distribution, or
             sourcing partnerships
           </p>
-          <button className="inline-flex items-center gap-2 px-10 py-4 bg-[#D98E2C] text-white rounded-xl font-bold hover:bg-[#B5721B] transition text-lg">
+          <button onClick={() => navigate("/contact")} className="inline-flex items-center gap-2 px-10 py-4 bg-[#D98E2C] text-white rounded-xl font-bold hover:bg-[#B5721B] transition text-lg">
             Contact Our Team
             <FaArrowRight />
           </button>

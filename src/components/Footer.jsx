@@ -8,7 +8,7 @@ import logo from "../assets/logoo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0f172a] text-gray-300 mt-20">
+    <footer className="bg-[#0f172a] text-gray-300 mt-0">
       <div className="max-w-[90vw] mx-auto px-6 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand Section */}
@@ -44,20 +44,7 @@ const Footer = () => {
               >
                 <FaInstagram />
               </a>
-              {/* <a
-                href="#"
-                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
-                aria-label="Twitter"
-              >
-                <FaTwitter />
-              </a> */}
-              {/* <a
-                href="#"
-                className="w-10 h-10 rounded-2xl bg-gray-800 hover:bg-[#E0920F] flex items-center justify-center transition-all"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn />
-              </a> */}
+              
             </div>
           </div>
 

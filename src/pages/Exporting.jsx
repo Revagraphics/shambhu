@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import {useNavigate} from "react-router-dom";
 import {
   FaClipboardCheck,
   FaBoxOpen,
@@ -42,6 +43,8 @@ const regions = [
 ];
 
 const Exporting = () => {
+
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-white overflow-x-hidden">
       {/* ================= HERO ================= */}
@@ -99,19 +102,12 @@ const Exporting = () => {
                 seamless delivery.
               </p>
 
-              <p className="mt-4 text-slate-400 leading-relaxed max-w-xl">
-                With years of experience and a strong network, every shipment
-                reaches its destination safely, efficiently, and on time.
-              </p>
-
               <div className="flex gap-4 mt-10">
-                <button className="group inline-flex items-center gap-2 px-2 lg:px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
-                  Explore Services
+                <button onClick={() => navigate("/contact")} className="group inline-flex items-center gap-2 px-2 lg:px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors">
+                   Request Quote
                   <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                 </button>
-                <button className="px-8 py-4 border border-white/30 text-white rounded-xl font-semibold hover:bg-white hover:text-[#0B1E33] transition-colors">
-                  Request Quote
-                </button>
+                
               </div>
             </motion.div>
           </div>

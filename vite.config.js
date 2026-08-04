@@ -4,8 +4,16 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/contact.php': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+    },
+  },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'react-icons/fa'],
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'react-icons/fa', 'react-simple-maps', 'prop-types'],
   },
   build: {
     target: 'esnext',

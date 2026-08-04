@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
+import { useNavigate  } from "react-router-dom";
 import hero from "../assets/com-1.png";
 import hero2 from "../assets/com-2.png";
 import hero3 from "../assets/about3.png";
@@ -119,6 +120,7 @@ const SolutionCard = memo(({ icon, title, desc }) => (
 SolutionCard.displayName = "SolutionCard";
 
 const Home = () => {
+  const navigate = useNavigate();
   const duplicatedLogos = [...logos, ...logos];
 
   return (
@@ -168,11 +170,11 @@ const Home = () => {
               </p>
 
               <div className="flex  gap-4 mt-10">
-                <button className="px-8 py-4 bg-[#ffac1c] text-white rounded-xl font-medium hover:bg-[#E0920F] transition">
+                <button onClick={() => navigate("/contact")} className="px-3 lg:px-8 py-2 lg:py-4 bg-[#ffac1c] text-white rounded-xl font-medium hover:bg-[#E0920F] transition">
                   Get Started
                 </button>
 
-                <button className="px-8 py-4 border border-[#ffac1c] text-zinc-800 rounded-xl font-medium hover:bg-[#E0920F] hover:text-white transition">
+                <button onClick={() => navigate("/about")} className="px-3 lg:px-8 py-2 lg:py-4 border border-[#ffac1c] text-zinc-800 rounded-xl font-medium hover:bg-[#E0920F] hover:text-white transition">
                   Learn More
                 </button>
               </div>
@@ -261,9 +263,7 @@ const Home = () => {
               </span>
 
               <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                Global Trade
-                <br />
-                Made Simple
+                Global <span className="text-[#D98E2C]">Trade Made </span> Simple
               </h2>
 
               <p className="text-lg text-gray-600 mb-10">
@@ -354,8 +354,7 @@ const Home = () => {
               </span>
 
               <h2 className="text-2xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                Complete Trade
-                <br />& Postal Support
+                Complete <span className="text-[#D98E2C]">Trade & Postal </span> Support
               </h2>
 
               <p className="text-lg text-gray-600 mb-10">
@@ -486,6 +485,8 @@ const Home = () => {
                 className="w-full h-auto object-contain"
                 loading="lazy"
               />
+
+           
             </div>
 
             <div className="lg:order-1">
@@ -495,8 +496,8 @@ const Home = () => {
 
               <h1 className="text-2xl lg:text-7xl font-bold leading-tight text-gray-900">
                 Delivering
-                <br />
-                Quality Beyond <span className="text-[#E0920F]">Borders</span>
+               
+                Quality  <span className="text-[#E0920F]"> Beyond Borders</span>
               </h1>
 
               <p className="mt-6 text-lg text-gray-600 max-w-xl">
@@ -508,11 +509,11 @@ const Home = () => {
               </p>
 
               <div className="flex  gap-4 mt-10">
-                <button className="px-8 py-4 bg-[#ffac1c] text-white rounded-xl font-medium hover:bg-[#E0920F] transition">
+                <button onClick={() => navigate("/contact")} className="px-3 lg:px-8 py-2 lg:py-4 bg-[#ffac1c] text-white rounded-xl font-medium hover:bg-[#E0920F] transition">
                   Get Started
                 </button>
 
-                <button className="px-8 py-4 border border-[#ffac1c] text-zinc-800 rounded-xl font-medium hover:bg-[#E0920F] hover:text-white transition">
+                <button onClick={() => navigate("/contact")} className="px-3 lg:px-8 py-2 lg:py-4 border border-[#ffac1c] text-zinc-800 rounded-xl font-medium hover:bg-[#E0920F] hover:text-white transition">
                   Learn More
                 </button>
               </div>
@@ -553,6 +554,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+
     </div>
   );
 };
