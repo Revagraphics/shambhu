@@ -8,7 +8,7 @@ import care5 from "../assets/personal-care/55.png";
 import care6 from "../assets/personal-care/66.png";
 import care7 from "../assets/personal-care/7.png";
 import care8 from "../assets/personal-care/8.png";
-
+import Seo from "../components/Seo";
 const categories = [
   "All",
   "Food",
@@ -147,21 +147,25 @@ const products = [
   },
 ];
 
-export default function FmcgProducts() {
+export default function Fmcg() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
 
   const filteredProducts = products.filter((item) => {
     const categoryMatch =
       activeCategory === "All" || item.category === activeCategory;
-
     const searchMatch = item.name.toLowerCase().includes(search.toLowerCase());
-
     return categoryMatch && searchMatch;
   });
 
   return (
-    <section className="min-h-screen bg-slate-50 ">
+    <>
+      <Seo
+        title="shambhu corporation - FMCG Products"
+        description="Explore our wide range of FMCG products including food, beverages, personal care, and household items. Quality and reliability guaranteed."
+      />
+
+      <section className="min-h-screen bg-slate-50 ">
       {/* banner */}
       <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
         <svg
@@ -214,10 +218,6 @@ export default function FmcgProducts() {
             FMCG <span className="text-[#E0920F]">Products</span>
           </h1>
 
-          {/* <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
-            Browse our extensive range of fast-moving consumer goods including
-            food, beverages, personal care, and household products.
-          </p> */}
         </div>
 
         {/* Search */}
@@ -301,5 +301,6 @@ export default function FmcgProducts() {
         )}
       </div>
     </section>
+    </>
   );
 }

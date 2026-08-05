@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaChevronDown,
-  FaGlobe,
-  FaShippingFast,
-  FaShieldAlt,
-  FaHeadset,
-} from "react-icons/fa";
+import { FaChevronDown, FaGlobe,FaShippingFast,FaShieldAlt,FaHeadset,} from "react-icons/fa";
 
 import exportt from "../assets/export.jpg";
 
@@ -45,7 +39,7 @@ export default function WhyChooseUs() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-24 bg-slate-50 overflow-hidden">
+    <section className="py-12 lg:py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <motion.div
@@ -60,7 +54,7 @@ export default function WhyChooseUs() {
           </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-5 text-slate-900">
-            Trusted Logistics & Export
+            Trusted <span className="text-[#D98E2C]">Logistics & Export </span>
             Partner For Your Business
           </h2>
 

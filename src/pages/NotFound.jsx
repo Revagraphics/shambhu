@@ -2,12 +2,17 @@ import { Link, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import error from "../assets/error.png";
-
+import Seo from "../components/Seo";
 export default function NotFound() {
   const location = useLocation();
 
   return (
     <>
+      <Seo
+        title="Page Not Found"
+        description="The page you are looking for does not exist."
+      />
+
       <div className="flex flex-col min-h-screen bg-gray-100">
         {/* Main Section */}
         <div className="flex min-h-screen flex-1 flex-col items-center justify-center text-center px-4">
