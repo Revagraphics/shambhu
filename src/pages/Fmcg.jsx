@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import care1 from "../assets/personal-care/11.png";
 import care2 from "../assets/personal-care/22.png";
@@ -7,7 +7,7 @@ import care4 from "../assets/personal-care/44.png";
 import care5 from "../assets/personal-care/55.png";
 import care6 from "../assets/personal-care/66.png";
 import care7 from "../assets/personal-care/7.png";
-import care8 from "../assets/personal-care/8.png";
+
 import Seo from "../components/Seo";
 const categories = [
   "All",
@@ -147,6 +147,20 @@ const products = [
   },
 ];
 
+const WHATSAPP_NUMBER = "919876543210";
+
+const handleProductEnquiry = (product) => {
+  const message = [
+    "Hello Shambhu Corporation, I am interested in this product:",
+    `Product: ${product.name}`,
+    `Category: ${product.category}`,
+    "Please share the price, MOQ, availability, and export details.",
+  ].join("\n");
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+};
+
 export default function Fmcg() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
@@ -252,7 +266,7 @@ export default function Fmcg() {
         {/* Products */}
         <motion.div
           layout
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-14 xl:grid-cols-5 gap-4"
         >
           {filteredProducts.map((product) => (
             <motion.div
@@ -281,13 +295,18 @@ export default function Fmcg() {
                   {product.name}
                 </h3>
 
-                <button className="w-full mt-4 bg-[#ffac1c] text-white py-2 rounded-lg hover:bg-[#E0920F] transition">
-                  View Product
+                <button
+                  type="button"
+                  onClick={() => handleProductEnquiry(product)}
+                  className="w-full mt-4 bg-[#ffac1c] text-white py-2 rounded-lg hover:bg-[#E0920F] transition"
+                >
+                  Enquiry Now
                 </button>
               </div>
             </motion.div>
           ))}
         </motion.div>
+
 
         {/* Empty State */}
         {filteredProducts.length === 0 && (

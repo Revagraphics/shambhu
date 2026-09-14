@@ -61,7 +61,7 @@ const BannerSlider = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black">
+    <section className="relative h-[80vh] w-full overflow-hidden bg-black md:h-screen">
       {/* Slider Track Container */}
       <motion.div
         animate={{ translateX: `-${current * 100}%` }}
@@ -81,7 +81,7 @@ const BannerSlider = () => {
             <div className="absolute inset-0 bg-black/20" />
 
             {/* Typography Content Placement */}
-            <div className="absolute inset-0 flex items-end md:items-center pb-10 md:pb-0">
+            <div className="absolute inset-0 flex items-end md:items-center pb-14 md:pb-0">
               <div className="max-w-[90vw] mx-auto px-2 lg:px-10 w-full">
                 <div className="max-w-3xl">
                   <span className="inline-block mb-5 px-4 py-2 rounded-full bg-yellow-500 text-black font-semibold text-sm">

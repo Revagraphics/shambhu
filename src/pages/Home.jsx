@@ -421,7 +421,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="py-24 bg-white"></section>
+        {/* <section className="py-24 bg-white"></section> */}
 
         <section className="py-24 bg-slate-50 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
