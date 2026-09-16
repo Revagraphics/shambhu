@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo";
+import truck from "../assets/truck.svg";
 import {
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
-  FaGlobe,
-  FaRegClock,
   FaCheckCircle,
   FaArrowRight,
-  FaBoxes,
 } from "react-icons/fa";
 
 const CONTACT_ENDPOINT = "/contact.php";
@@ -116,21 +114,20 @@ export default function ContactPage() {
     },
   };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-  };
+  // const staggerContainer = {
+  //   hidden: { opacity: 0 },
+  //   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  // };
 
-  // Office Hubs Data for Section 2
-  const globalHubs = [
-    {
-      city: "Noida (HQ)",
-      role: "Corporate & FMCG Export Desk",
-      hours: "09:00 - 18:00 IST",
-      status: "Open Now",
-      phone: "+91 98XXX XXXXX",
-    },
-  ];
+  // const globalHubs = [
+  //   {
+  //     city: "Noida (HQ)",
+  //     role: "Corporate & FMCG Export Desk",
+  //     hours: "09:00 - 18:00 IST",
+  //     status: "Open Now",
+  //     phone: "+91 98XXX XXXXX",
+  //   },
+  // ];
 
   return (
     <>
@@ -143,7 +140,7 @@ export default function ContactPage() {
         {/* banner */}
         <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
           <svg
-            className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+            className="absolute inset-0 h-full w-full  pointer-events-none"
             viewBox="0 0 1200 800"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -151,18 +148,34 @@ export default function ContactPage() {
             <motion.path
               d="M -50 640 Q 320 540 650 600 T 1250 560"
               fill="none"
-              stroke="#D98E2C"
+              stroke="#ffffff"
               strokeWidth="3.5"
-              strokeDasharray="2 10"
+              strokeDasharray="3 10"
               strokeLinecap="round"
               initial={{ strokeDashoffset: 0 }}
               animate={{ strokeDashoffset: -240 }}
-              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              opacity="0.25"
             />
+            <image
+              href={truck}
+              x="-48"
+              y="-82"
+              width="100"
+              height="120"
+              opacity="1"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                rotate="auto"
+                path="M -50 640 Q 320 540 650 600 T 1250 560"
+              />
+            </image>
           </svg>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <div className="relative z-10 max-w-7xl mt-6 mx-auto px-6 text-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
@@ -9,6 +8,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import Seo from "../components/Seo";
+import truck from "../assets/truck.svg";
 import {
   PortalDirectory,
   ProductRequestForm,
@@ -96,62 +96,65 @@ const Import = () => {
         description="Streamline your sourcing strategy with Shambhu Corporation's reliable global import network and customs handling services."
       />
       <div className="bg-white overflow-x-hidden">
-        {/* ================= HERO ================= */}
-        <section className="relative min-h-[92svh] flex items-center bg-[#0B1E33] overflow-hidden">
-          {/* Signature route lines */}
+        <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
           <svg
-            className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+            className="absolute inset-0 h-full w-full pointer-events-none"
             viewBox="0 0 1200 800"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <motion.path
-              d="M -50 180 Q 300 100 650 160 T 1250 120"
+              d="M -50 640 Q 320 540 650 600 T 1250 560"
               fill="none"
-              stroke="#D98E2C"
-              strokeWidth="2.8"
+              stroke="#ffffff"
+              strokeWidth="3.5"
               strokeDasharray="2 10"
               strokeLinecap="round"
               initial={{ strokeDashoffset: 0 }}
               animate={{ strokeDashoffset: -240 }}
-              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              opacity="0.25"
             />
-            <motion.path
-              d="M -50 680 Q 350 760 700 700 T 1250 740"
-              fill="none"
-              stroke="#D98E2C"
-              strokeWidth="2.8"
-              strokeDasharray="2 12"
-              strokeLinecap="round"
-              initial={{ strokeDashoffset: 0 }}
-              animate={{ strokeDashoffset: -260 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            />
-          </svg>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(217,142,44,0.12),transparent_55%)]" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 w-full">
+            <image
+              href={truck}
+              x="-48"
+              y="-82"
+              width="100"
+              height="120"
+              opacity="1"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                rotate="auto"
+                path="M -50 640 Q 320 540 650 600 T 1250 560"
+              />
+            </image>
+          </svg>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 mt-8 text-center">
             <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="max-w-3xl"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-[#D98E2C] text-xs font-semibold tracking-[0.15em] uppercase">
-                Inbound Trade Desk
+                Global Trading Solutions
               </span>
 
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
                 Import Solutions Built for{" "}
                 <span className="text-[#D98E2C]">Reliable Sourcing</span>
               </h1>
 
-              <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
+              <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
                 Seamless import logistics, expert documentation handling, and
                 reliable delivery of international goods to India — end to end.
               </p>
 
-              <div className="flex gap-4 mt-10 sm:flex">
+              {/* <div className="flex gap-4 mt-6 items-center justify-center sm:flex">
                 <button
                   onClick={() => navigate("/contact")}
                   className="group inline-flex items-center gap-2 px-2 lg:px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors"
@@ -159,15 +162,15 @@ const Import = () => {
                   Talk to a Specialist
                   <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                 </button>
-              </div>
+              </div> */}
             </motion.div>
 
-            {/* Stats row */}
+            {/* Stats */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 lg:mt-16 border-t border-white/10 pt-10"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 lg:mt-16  pt-10"
             >
               {stats.map((s, i) => (
                 <motion.div key={s.label} custom={i} variants={fadeUp}>

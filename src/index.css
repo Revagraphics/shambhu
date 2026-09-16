@@ -22,3 +22,18 @@
     stroke-dashoffset: 0;
   }
 }
+
+@media (min-width: 1250px) and (max-width: 1399px) {
+  .banner-content {
+    transform: translateY(2.5rem);
+  }
+
+  .banner-title {
+    font-size: 4.5rem;
+  }
+
+  .banner-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+}

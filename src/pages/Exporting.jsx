@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Seo from "../components/Seo";
 import {
   FaClipboardCheck,
   FaBoxOpen,
   FaPlaneDeparture,
   FaWarehouse,
-  FaArrowRight,
 } from "react-icons/fa";
 
 import WhyChooseUs from "../components/WhyChooseUs";
@@ -47,7 +46,6 @@ const regions = [
 ];
 
 const Exporting = () => {
-  const navigate = useNavigate();
   return (
     <>
       <Seo
@@ -77,7 +75,7 @@ const Exporting = () => {
             />
           </svg>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="relative z-10 max-w-7xl mt-6 mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
@@ -113,7 +111,7 @@ const Exporting = () => {
                   seamless delivery.
                 </p>
 
-                <div className="flex gap-4 mt-10">
+                {/* <div className="flex gap-4 mt-10">
                   <button
                     onClick={() => navigate("/contact")}
                     className="group inline-flex items-center gap-2 px-2 lg:px-8 py-4 bg-[#D98E2C] text-white rounded-xl font-semibold hover:bg-[#B5721B] transition-colors"
@@ -121,7 +119,7 @@ const Exporting = () => {
                     Request Quote
                     <FaArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </button>
-                </div>
+                </div> */}
               </motion.div>
             </div>
           </div>

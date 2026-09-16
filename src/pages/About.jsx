@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import WhyChooseUs from "../components/WhyChooseUs";
@@ -12,9 +11,9 @@ import {
   FaChartLine,
   FaArrowRight,
 } from "react-icons/fa";
-import Slider from "../components/Slider";
 import TestimonialSlider from "../components/TestimonialSlider";
 import about from "../assets/about3.png";
+import truck from "../assets/truck.svg";
 import Seo from "../components/Seo";
 
 const stats = [
@@ -42,22 +41,7 @@ const values = [
   },
 ];
 
-const services = [
-  {
-    title: "Global Export Services",
-    text: "Connecting businesses to international markets through reliable export solutions.",
-  },
-  {
-    title: "Postal & Courier Solutions",
-    text: "Fast and secure delivery services for documents and parcels worldwide.",
-  },
-  {
-    title: "Supply Chain Support",
-    text: "Efficient logistics and transportation management tailored to your needs.",
-  },
-];
-
-const About = () => {
+export default function About() {
   const navigate = useNavigate();
   return (
     <>
@@ -70,26 +54,41 @@ const About = () => {
         {/* banner */}
         <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
           <svg
-            className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+            className="absolute inset-0 h-full w-full pointer-events-none"
             viewBox="0 0 1200 800"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <motion.path
+              id="about-banner-route"
               d="M -50 640 Q 320 540 650 600 T 1250 560"
               fill="none"
-              stroke="#D98E2C"
+              stroke="#ffffff"
               strokeWidth="3.5"
               strokeDasharray="2 10"
               strokeLinecap="round"
-              initial={{ strokeDashoffset: 0 }}
-              animate={{ strokeDashoffset: -240 }}
-              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              opacity="0.25"
             />
+            <image
+              href={truck}
+              x="-48"
+              y="-82"
+              width="100"
+              height="120"
+              opacity="1"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                rotate="auto"
+                path="M -50 640 Q 320 540 650 600 T 1250 560"
+              />
+            </image>
           </svg>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 mt-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -257,45 +256,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* ================= EXPERTISE SLIDER ================= */}
-        {/* <section className="py-24 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-12"
-          >
-            <span className="inline-block px-4 py-2 rounded-full bg-[#0B1E33]/5 border border-[#0B1E33]/10 text-[#0B1E33] text-sm font-medium">
-              Our Expertise
-            </span>
-
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 text-slate-900">
-              Why Choose Shambhu
-            </h2>
-          </motion.div>
-
-          <Slider
-            items={services}
-            interval={3500}
-            renderItem={(service) => (
-              <>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                  {service.text}
-                </p>
-                <button className="mt-8 bg-[#0B1E33] text-white px-7 py-3 rounded-full font-semibold hover:bg-[#0B1E33]/90 transition shadow-md">
-                  Learn More
-                </button>
-              </>
-            )}
-          />
-        </div>
-      </section> */}
-
         {/* why-choose-us */}
         <WhyChooseUs />
 
@@ -346,6 +306,4 @@ const About = () => {
       </div>
     </>
   );
-};
-
-export default About;
+}

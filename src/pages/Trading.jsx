@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,6 +10,7 @@ import {
 import about from "../assets/about3.png";
 import trade from "../assets/trade.jpg";
 import sustainable from "../assets/sustainable.jpg";
+import truck from "../assets/truck.svg";
 
 import Seo from "../components/Seo";
 
@@ -39,7 +39,7 @@ const Trading = () => {
         {/* ================= HERO ================= */}
         <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
           <svg
-            className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+            className="absolute inset-0 h-full w-full  pointer-events-none"
             viewBox="0 0 1200 800"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -47,18 +47,34 @@ const Trading = () => {
             <motion.path
               d="M -50 640 Q 320 540 650 600 T 1250 560"
               fill="none"
-              stroke="#D98E2C"
+              stroke="#ffffff"
               strokeWidth="3.5"
-              strokeDasharray="2 10"
+              strokeDasharray="3 10"
               strokeLinecap="round"
               initial={{ strokeDashoffset: 0 }}
               animate={{ strokeDashoffset: -240 }}
-              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              opacity="0.25"
             />
+            <image
+              href={truck}
+              x="-48"
+              y="-82"
+              width="100"
+              height="120"
+              opacity="1"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                rotate="auto"
+                path="M -50 640 Q 320 540 650 600 T 1250 560"
+              />
+            </image>
           </svg>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 mt-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -73,7 +89,7 @@ const Trading = () => {
                 <span className="text-[#D98E2C]">International Markets</span>
               </h1>
 
-              <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
+              <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
                 Shambhu Corporation facilitates seamless global trade by
                 bridging manufacturers, suppliers, distributors, and buyers
                 through trusted business networks and strategic market
@@ -87,7 +103,7 @@ const Trading = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="grid grid-cols-3 gap-6 max-w-xl mx-auto mt-8 border-t border-white/10 pt-8"
+              className="grid grid-cols-3 gap-6 max-w-xl mx-auto mt-1 border-t border-white/10 pt-8"
             >
               {stats.map((s) => (
                 <div key={s.label}>

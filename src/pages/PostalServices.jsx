@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import toast from "react-hot-toast";
-import {
-  PortalDirectory,
-  ProductRequestForm,
-} from "../components/PostalComponents";
+// import { useState } from "react";
+// import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { PortalDirectory, ProductRequestForm,} from "../components/PostalComponents";
 import Seo from "../components/Seo";
+import truck from "../assets/truck.svg";
 
-export default function PostalServices() {
+export default function PostalService() {
   return (
     <>
       <Seo
@@ -19,7 +17,7 @@ export default function PostalServices() {
         {/* banner */}
         <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
           <svg
-            className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
+            className="absolute inset-0 h-full w-full pointer-events-none"
             viewBox="0 0 1200 800"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -27,14 +25,31 @@ export default function PostalServices() {
             <motion.path
               d="M -50 640 Q 320 540 650 600 T 1250 560"
               fill="none"
-              stroke="#D98E2C"
+              stroke="#ffffff"
               strokeWidth="3.5"
               strokeDasharray="2 10"
               strokeLinecap="round"
               initial={{ strokeDashoffset: 0 }}
               animate={{ strokeDashoffset: -240 }}
-              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              opacity="0.25"
             />
+
+            <image
+              href={truck}
+              x="-48"
+              y="-82"
+              width="100"
+              height="120"
+              opacity="1"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                rotate="auto"
+                path="M -50 640 Q 320 540 650 600 T 1250 560"
+              />
+            </image>
           </svg>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
 
@@ -67,6 +82,7 @@ export default function PostalServices() {
           <PortalDirectory />
           <ProductRequestForm />
         </>
+
       </section>
     </>
   );

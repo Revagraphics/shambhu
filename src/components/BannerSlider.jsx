@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Link , Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import slider1 from "../assets/slider-4.jpg";
 import slider2 from "../assets/slider-2.jpg";
@@ -52,13 +52,13 @@ const BannerSlider = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
+  // const handleNext = () => {
+  //   setCurrent((prev) => (prev + 1) % slides.length);
+  // };
 
-  const handlePrev = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  // const handlePrev = () => {
+  //   setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  // };
 
   return (
     <section className="relative h-[80vh] w-full overflow-hidden bg-black md:h-screen">
@@ -81,18 +81,18 @@ const BannerSlider = () => {
             <div className="absolute inset-0 bg-black/20" />
 
             {/* Typography Content Placement */}
-            <div className="absolute inset-0 flex items-end md:items-center pb-14 md:pb-0">
+            <div className="banner-content absolute inset-0 flex items-end md:items-center pb-14 md:pb-0">
               <div className="max-w-[90vw] mx-auto px-2 lg:px-10 w-full">
-                <div className="max-w-3xl">
+                <div className="banner-copy max-w-3xl">
                   <span className="inline-block mb-5 px-4 py-2 rounded-full bg-yellow-500 text-black font-semibold text-sm">
                     SHAMBHU CORPORATION
                   </span>
 
-                  <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                  <h1 className="banner-title text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                     {slide.title}
                   </h1>
 
-                  <p className="text-gray-200 text-lg md:text-xl mt-2 lg:mt-6 leading-relaxed max-w-2xl">
+                  <p className="banner-subtitle text-gray-200 text-lg md:text-xl mt-2 lg:mt-6 leading-relaxed max-w-2xl">
                     {slide.subtitle}
                   </p>
 

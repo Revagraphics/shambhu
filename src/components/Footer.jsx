@@ -4,7 +4,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaTwitter,
+  FaHeart,
 } from "react-icons/fa";
 
 import logo from "../assets/logoo.png";
@@ -146,25 +146,20 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">
-              © 2026 Shambhu Corporation. All rights reserved. Designed by
+              © 2026 <span><a className="text-[#f04393] font-semibold bg-gradient-to-br from-[#f04393] to-[#f9c449] bg-clip-text text-transparent" href=""></a></span> Shambhu Corporation. All rights reserved. Designed and
+              Developed with{" "}
+              <span className="inline-flex items-center gap-1">
+                <FaHeart className="inline text-red-500" />
+              </span>
               <a
                 className="text-[#f04393] font-semibold bg-gradient-to-br from-[#f04393] to-[#f9c449] bg-clip-text text-transparent"
                 href="https://www.revagraphics.com"
                 target="_blank"
               >
                 {" "}
-                Reva Graphics
+                by Reva Graphics
               </a>
             </p>
-
-            {/* <div className="flex gap-6 mt-4 md:mt-0 text-sm">
-              <a href="#" className="text-gray-500 hover:text-white transition">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white transition">
-                Terms of Service
-              </a>
-            </div> */}
           </div>
         </div>
       </div>

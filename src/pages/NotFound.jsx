@@ -1,6 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import error from "../assets/error.png";
 import Seo from "../components/Seo";
 export default function NotFound() {

@@ -9,6 +9,7 @@ import care6 from "../assets/personal-care/66.png";
 import care7 from "../assets/personal-care/7.png";
 
 import Seo from "../components/Seo";
+import truck from "../assets/truck.svg";
 const categories = [
   "All",
   "Food",
@@ -180,146 +181,162 @@ export default function Fmcg() {
       />
 
       <section className="min-h-screen bg-slate-50 ">
-      {/* banner */}
-      <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
-        <svg
-          className="absolute inset-0 h-full w-full opacity-[0.25] pointer-events-none"
-          viewBox="0 0 1200 800"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <motion.path
-            d="M -50 640 Q 320 540 650 600 T 1250 560"
-            fill="none"
-            stroke="#D98E2C"
-            strokeWidth="3.5"
-            strokeDasharray="2 10"
-            strokeLinecap="round"
-            initial={{ strokeDashoffset: 0 }}
-            animate={{ strokeDashoffset: -240 }}
-            transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-          />
-        </svg>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+        {/* banner */}
+        <section className="relative py-28 lg:py-32 bg-[#0B1E33] overflow-hidden">
+          <svg
+            className="absolute inset-0 h-full w-full pointer-events-none"
+            viewBox="0 0 1200 800"
+            preserveAspectRatio="none"
+            aria-hidden="true"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-[#D98E2C] text-xs font-semibold tracking-[0.15em] uppercase">
-              FMCG Service
-            </span>
+            <motion.path
+              d="M -50 640 Q 320 540 650 600 T 1250 560"
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth="3.5"
+              strokeDasharray="2 10"
+              strokeLinecap="round"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -240 }}
+              opacity="0.25"
+            />
 
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
-              Connecting Businesses Across{" "}
-              <span className="text-[#D98E2C]">International Markets</span>
+            <image
+              href={truck}
+              x="-48"
+              y="-82"
+              width="100"
+              height="120"
+              opacity="1"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <animateMotion
+                dur="16s"
+                repeatCount="indefinite"
+                rotate="auto"
+                path="M -50 640 Q 320 540 650 600 T 1250 560"
+              />
+            </image>
+          </svg>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,142,44,0.15),transparent_55%)]" />
+
+          <div className="relative z-10 max-w-7xl mt-6 mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-[#D98E2C] text-xs font-semibold tracking-[0.15em] uppercase">
+                FMCG Service
+              </span>
+
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
+                Connecting Businesses Across{" "}
+                <span className="text-[#D98E2C]">International Markets</span>
+              </h1>
+
+              <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
+                Shambhu Corporation facilitates seamless global trade by
+                bridging manufacturers, suppliers, distributors, and buyers
+                through trusted business networks and strategic market
+                expertise.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="max-w-7xl mt-[4rem] mx-auto px-4">
+          <div className="text-center mb-10">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-800">
+              FMCG <span className="text-[#E0920F]">Products</span>
             </h1>
+          </div>
 
-            <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
-              Shambhu Corporation facilitates seamless global trade by bridging
-              manufacturers, suppliers, distributors, and buyers through trusted
-              business networks and strategic market expertise.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+          {/* Search */}
+          <div className="mb-6">
+            <input
+              type="text"
+              placeholder="Search Products..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 outline-none focus:border-[#E0920F]"
+            />
+          </div>
 
-      <div className="max-w-7xl mt-[4rem] mx-auto px-4">
-        <div className="text-center mb-10">
-          <h1 className="text-2xl md:text-3xl font-bold text-slate-800">
-            FMCG <span className="text-[#E0920F]">Products</span>
-          </h1>
-
-        </div>
-
-        {/* Search */}
-        <div className="mb-6">
-          <input
-            type="text"
-            placeholder="Search Products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 outline-none focus:border-[#E0920F]"
-          />
-        </div>
-
-        {/* Categories */}
-        <div className="flex gap-3 overflow-x-auto pb-4 mb-10 scrollbar-hide">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`flex-shrink-0 px-5 py-2 rounded-full transition-all
+          {/* Categories */}
+          <div className="flex gap-3 overflow-x-auto pb-4 mb-10 scrollbar-hide">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`flex-shrink-0 px-5 py-2 rounded-full transition-all
                 ${
                   activeCategory === category
                     ? "bg-[#E0920F] text-white"
                     : "bg-white shadow text-slate-700"
                 }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Products */}
-        <motion.div
-          layout
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-14 xl:grid-cols-5 gap-4"
-        >
-          {filteredProducts.map((product) => (
-            <motion.div
-              key={product.id}
-              layout
-              whileHover={{
-                y: -8,
-                scale: 1.03,
-              }}
-              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all"
-            >
-              <div className="h-44 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="p-4">
-                <span className="inline-block text-xs bg-slate-100 px-3 py-1 rounded-full text-slate-600">
-                  {product.category}
-                </span>
-
-                <h3 className="font-semibold text-slate-800 mt-3">
-                  {product.name}
-                </h3>
-
-                <button
-                  type="button"
-                  onClick={() => handleProductEnquiry(product)}
-                  className="w-full mt-4 bg-[#ffac1c] text-white py-2 rounded-lg hover:bg-[#E0920F] transition"
-                >
-                  Enquiry Now
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-
-        {/* Empty State */}
-        {filteredProducts.length === 0 && (
-          <div className="text-center py-20">
-            <h3 className="text-xl font-semibold">No Products Found</h3>
-
-            <p className="text-slate-500 mt-2">
-              Try changing your search or category.
-            </p>
+              >
+                {category}
+              </button>
+            ))}
           </div>
-        )}
-      </div>
-    </section>
+
+          {/* Products */}
+          <motion.div
+            layout
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-14 xl:grid-cols-5 gap-4"
+          >
+            {filteredProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                layout
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                }}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all"
+              >
+                <div className="h-44 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="p-4">
+                  <span className="inline-block text-xs bg-slate-100 px-3 py-1 rounded-full text-slate-600">
+                    {product.category}
+                  </span>
+
+                  <h3 className="font-semibold text-slate-800 mt-3">
+                    {product.name}
+                  </h3>
+
+                  <button
+                    type="button"
+                    onClick={() => handleProductEnquiry(product)}
+                    className="w-full mt-4 bg-[#ffac1c] text-white py-2 rounded-lg hover:bg-[#E0920F] transition"
+                  >
+                    Enquiry Now
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Empty State */}
+          {filteredProducts.length === 0 && (
+            <div className="text-center py-20">
+              <h3 className="text-xl font-semibold">No Products Found</h3>
+
+              <p className="text-slate-500 mt-2">
+                Try changing your search or category.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
     </>
   );
 }
